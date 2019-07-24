@@ -48,7 +48,7 @@ export default class Onboarding extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.COLORS.BLACK,
+    backgroundColor: materialTheme.COLORS.PRIMARY,
   },
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,

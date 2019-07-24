@@ -33,7 +33,6 @@ const Drawer = (props) => (
   </Block>
 );
 
-
 /*
           <Block middle style={styles.pro}>
           <Text size={16} color="white">{props.profile.plan}</Text>
