@@ -35,7 +35,7 @@ export default class Onboarding extends React.Component {
                 shadowless
                 style={styles.button}
                 color={materialTheme.COLORS.INFO}
-                onPress={() => navigation.navigate('Login')}>
+                onPress={() => navigation.navigate('Home')}>
                 Empezar
               </Button>
             </Block>
@@ -48,7 +48,7 @@ export default class Onboarding extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: materialTheme.COLORS.PRIMARY,
+    backgroundColor: theme.COLORS.BLACK,
   },
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,
