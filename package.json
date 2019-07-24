@@ -1,7 +1,7 @@
 {
-  "name": "rn-material-kit-free",
-  "version": "1.2.0",
-  "description": "Material Kit React Native. Coded by Creative Tim",
+  "name": "Ostore",
+  "version": "0.5",
+  "description": "A Simple Company Solution",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
@@ -31,7 +31,7 @@
     "jest-expo": "^33.0.2"
   },
   "bugs": {
-    "url": "https://github.com/creativetimofficial/material-kit-react-native/issues"
+    "url": "https://simplestoreonline.com/"
   },
-  "homepage": "https://demos.creative-tim.com/material-kit-react-native/"
+  "homepage": "https://simplestoreonline.com/"
 }

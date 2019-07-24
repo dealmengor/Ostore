@@ -24,22 +24,19 @@ export default class Onboarding extends React.Component {
           <Block flex space="around" style={{ zIndex: 2 }}>
             <Block>
               <Block>
-                <Text color="white" size={60}>Material</Text>
-              </Block>
-              <Block row>
-                <Text color="white" size={60}>Kit</Text>
+                <Text color="white" size={60}>Ostore</Text>
               </Block>
               <Text size={16} color='rgba(255,255,255,0.6)'>
-                Fully coded React Native components.
+                Encuentra lo que buscas en un sólo lugar.
               </Text>
             </Block>
             <Block center>
               <Button
                 shadowless
                 style={styles.button}
-                color={materialTheme.COLORS.PRIMARY}
-                onPress={() => navigation.navigate('Home')}>
-                GET STARTED
+                color={materialTheme.COLORS.INFO}
+                onPress={() => navigation.navigate('Login')}>
+                Empezar
               </Button>
             </Block>
           </Block>
@@ -51,7 +48,7 @@ export default class Onboarding extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.COLORS.BLACK,
+    backgroundColor: materialTheme.COLORS.PRIMARY,
   },
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,

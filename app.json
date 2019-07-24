@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "rn-material-kit-free",
-    "description": "React Native - Material Kit Free",
-    "slug": "rn-material-kit-free",
+    "name": "Ostore",
+    "description": "A simple Company Solution",
+    "slug": "Ostore",
     "privacy": "unlisted",
     "sdkVersion": "33.0.0",
     "platforms": ["ios", "android"],
@@ -12,7 +12,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "cover",
-      "backgroundColor": "#6C24AA"
+      "backgroundColor": "#0082C8"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
