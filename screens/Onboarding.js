@@ -29,7 +29,7 @@ export default class Onboarding extends React.Component {
                 shadowless
                 style={styles.button}
                 color={materialTheme.COLORS.INFO}
-                onPress={() => navigation.navigate('Home')}>
+                onPress={() => navigation.navigate('Login')}>
                 Empezar
               </Button>
             </Block>

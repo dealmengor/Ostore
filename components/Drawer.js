@@ -5,7 +5,7 @@ import { Block, Text, theme } from "galio-framework";
 import Icon from './Icon';
 import materialTheme from '../constants/Theme';
 
-const proScreens = ['Woman', 'Man', 'Kids', 'New Collection', 'Sign In', 'Sign Up'];
+const proScreens = ['Mi Tienda', 'Man', 'Kids', 'New Collection', 'Sign In', 'Sign Up'];
 
 class DrawerItem extends React.Component {
   renderIcon = () => {
@@ -20,7 +20,7 @@ class DrawerItem extends React.Component {
             family="GalioExtra"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
-      case 'Woman':
+      case 'Mi Tienda':
         return (
           <Icon
             size={16}
@@ -36,7 +36,7 @@ class DrawerItem extends React.Component {
             family="entypo"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
-      case 'Kids':
+      case 'Insights':
         return (
           <Icon
             size={16}

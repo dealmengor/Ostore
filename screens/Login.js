@@ -1,69 +1,59 @@
-/*import React, {Component} from 'react';
-import styles from '../../resources/styles/LoginStyle' 
-import logo from '../../assets/images/logo.png';
-import {Image, Text, View, TextInput, ScrollView, KeyboardAvoidingView,TouchableHighlight } from 'react-native';
-import { Button } from 'react-native-elements';
+import React from 'react';
+import { ImageBackground, StyleSheet, StatusBar, Dimensions, Platform } from 'react-native';
+import { Block, Button, Text, theme } from 'galio-framework';
 
+const { height, width } = Dimensions.get('screen');
 
+import materialTheme from '../constants/Theme';
+import Images from '../constants/Images';
 
-export default class LoginScreen extends Component {
-  
-
+export default class Login extends React.Component {
   render() {
-    return (
-        <ScrollView>
-            <KeyboardAvoidingView style={styles.containerView} behavior="padding" enabled>
-                <View style={styles.loginScreenContainer}>
-                    <View style={styles.loginFormView}>
-                        <View style={styles.logoText}>
-                            <Image style={styles.images} source={logo} />
-                        </View>
+    const { navigation } = this.props;
 
-                        <TextInput placeholder="Correo" placeholderColor="#93c572" style={styles.loginFormTextInput} />
-                        <TextInput placeholder="Contraseña" placeholderColor="#93c572" style={styles.loginFormTextInput} secureTextEntry={true}/>
-                        <Button
-                        buttonStyle={styles.loginButton}
-                        onPress={() => this._signInAsync()}
-                        title="Iniciar Sesión"
-                        textStyle={{fontFamily: 'KhmerUI'}}
-                        />
-                        <Button
-                        buttonStyle={styles.loginButton}
-                        onPress={() => this.onRegisterPress()}
-                        title="Registrarse"
-                        textStyle={{fontFamily: 'KhmerUI'}}
-                        />
-                        <TouchableHighlight 
-                        style={styles.button}
-                        onPress={()=> this.onForgotPress()}
-                        >
-                        <Text style={styles.forgotpass}>¿Olvidaste la contraseña?</Text>
-                        </TouchableHighlight>
-                    </View>
-                </View>
-            </KeyboardAvoidingView>
-        </ScrollView>
+    return (
+      <Block flex style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <Block flex center>
+          <ImageBackground
+            source={{  uri: Images.Onboarding }}
+            style={{ height: height, width: width, zIndex: 1 }}
+            //marginTop: '-55%'
+          />
+        </Block>
+        <Block flex space="between" style={styles.padded}>
+          <Block flex space="around" style={{ zIndex: 2 }}>
+        
+            <Block center>
+              <Button
+                shadowless
+                style={styles.button}
+                color={materialTheme.COLORS.INFO}
+                onPress={() => navigation.navigate('Home')}>
+                Empezar
+              </Button>
+            </Block>
+          </Block>
+        </Block>
+        </Block>
+      
     );
   }
-
-  _signInAsync = async () => {
-    //await AsyncStorage.setItem('userToken', 'abc');
-    this.props.navigation.navigate('Home');
-  };
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-  onRegisterPress() {
-    this.props.navigation.navigate('Modoreg');
-  }
-
-  onForgotPress() {
-    this.props.navigation.navigate('ForgotPassword');
-  }
-
 }
-*/
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: theme.COLORS.BLACK,
+  },
+  padded: {
+    paddingHorizontal: theme.SIZES.BASE * 2,
+    position: 'relative',
+    bottom: theme.SIZES.BASE,
+  },
+  button: {
+    width: width - theme.SIZES.BASE * 4,
+    height: theme.SIZES.BASE * 3,
+    shadowRadius: 0,
+    shadowOpacity: 0,
+  },
+});
