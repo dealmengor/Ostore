@@ -164,7 +164,6 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    
     Profile: {
       screen: ProfileStack,
       navigationOptions: (navOpt) => ({
@@ -213,7 +212,7 @@ const AppStack = createDrawerNavigator(
     },
   },
   Menu
-);
+  });
 
 const AppContainer = createAppContainer(AppStack);
 export default AppContainer;
