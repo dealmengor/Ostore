@@ -23,110 +23,115 @@ export default class Products extends React.Component {
   };
 
   toggleSwitch = switchId => this.setState({ [switchId]: !this.state[switchId] });
-  
-  renderButtons = () => {
-    return (
-      <Block flex>
-        <Text bold size={16} style={styles.title}>Productos</Text>
-        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-          <Block center>
-            <Button shadowless color={materialTheme.COLORS.DEFAULT} style={[styles.button, styles.shadow]}>
-              DEFAULT
-            </Button>
-          </Block>
-          <Block center>
-            <Button shadowless style={[styles.button, styles.shadow]}>
-              PRIMARY
-            </Button>
-          </Block>
-          <Block center>
-            <Button shadowless color="info" style={[styles.button, styles.shadow]}>
-              INFO
-            </Button>
-          </Block>
-          <Block center>
-            <Button shadowless color="success" style={[styles.button, styles.shadow]}>
-              SUCCESS
-            </Button>
-          </Block>
-          <Block center>
-            <Button shadowless color="warning" style={[styles.button, styles.shadow]}>
-              WARNING
-            </Button>
-          </Block>
-          <Block center>
-            <Button shadowless color="error" style={[styles.button, styles.shadow]}>
-              ERROR
-            </Button>
-          </Block>
-          <Block row space="evenly">
-            <Block flex left>
-              <Select
-                defaultIndex={1}
-                options={[1, 2, 3, 4, 5]}
-                style={styles.shadow}
-              />
-            </Block>
-            <Block flex center>
-              <Button
-                center
-                shadowless
-                color={materialTheme.COLORS.DEFAULT}
-                textStyle={styles.optionsText}
-                style={[styles.optionsButton, styles.shadow]}>
-                DELETE
-              </Button>
-            </Block>
-            <Block flex={1.25} right>
-              <Button
-                center
-                shadowless
-                color={materialTheme.COLORS.DEFAULT}
-                textStyle={styles.optionsText}
-                style={[styles.optionsButton, styles.shadow]}>
-                SAVE FOR LATER
-              </Button>
-            </Block>
+
+  /* 
+   renderButtons = () => {
+     return (
+       <Block flex>
+         <Text bold size={16} style={styles.title}>Tiendas</Text>
+         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+           <Block center>
+             <Button shadowless color={materialTheme.COLORS.DEFAULT} style={[styles.button, styles.shadow]}>
+               DEFAULT
+             </Button>
+           </Block>
+           <Block center>
+             <Button shadowless style={[styles.button, styles.shadow]}>
+               PRIMARY
+             </Button>
+           </Block>
+           <Block center>
+             <Button shadowless color="info" style={[styles.button, styles.shadow]}>
+               INFO
+             </Button>
+           </Block>
+           <Block center>
+             <Button shadowless color="success" style={[styles.button, styles.shadow]}>
+               SUCCESS
+             </Button>
+           </Block>
+           <Block center>
+             <Button shadowless color="warning" style={[styles.button, styles.shadow]}>
+               WARNING
+             </Button>
+           </Block>
+           <Block center>
+             <Button shadowless color="error" style={[styles.button, styles.shadow]}>
+               ERROR
+             </Button>
+           </Block>
+           <Block row space="evenly">
+             <Block flex left>
+               <Select
+                 defaultIndex={1}
+                 options={[1, 2, 3, 4, 5]}
+                 style={styles.shadow}
+               />
+             </Block>
+             <Block flex center>
+               <Button
+                 center
+                 shadowless
+                 color={materialTheme.COLORS.DEFAULT}
+                 textStyle={styles.optionsText}
+                 style={[styles.optionsButton, styles.shadow]}>
+                 DELETE
+               </Button>
+             </Block>
+             <Block flex={1.25} right>
+               <Button
+                 center
+                 shadowless
+                 color={materialTheme.COLORS.DEFAULT}
+                 textStyle={styles.optionsText}
+                 style={[styles.optionsButton, styles.shadow]}>
+                 SAVE FOR LATER
+               </Button>
+             </Block>
+           </Block>
+         </Block>
+       </Block>
+     )
+   }
+  */
+  /*
+    renderText = () => {
+      return (
+        <Block flex style={styles.group}>
+          <Text bold size={16} style={styles.title}>Typography</Text>
+          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+            <Text h1 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 1</Text>
+            <Text h2 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 2</Text>
+            <Text h3 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 3</Text>
+            <Text h4 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 4</Text>
+            <Text h5 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 5</Text>
+            <Text p style={{marginBottom: theme.SIZES.BASE / 2}}>Paragraph</Text>
+            <Text muted>This is a muted paragraph.</Text>
           </Block>
         </Block>
-      </Block>
-    )
-  }
-  
-  renderText = () => {
-    return (
-      <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>Typography</Text>
-        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-          <Text h1 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 1</Text>
-          <Text h2 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 2</Text>
-          <Text h3 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 3</Text>
-          <Text h4 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 4</Text>
-          <Text h5 style={{marginBottom: theme.SIZES.BASE / 2}}>Heading 5</Text>
-          <Text p style={{marginBottom: theme.SIZES.BASE / 2}}>Paragraph</Text>
-          <Text muted>This is a muted paragraph.</Text>
-        </Block>
-      </Block>
-    )
-  }
-  
+      )
+    }
+    */
   renderInputs = () => {
     return (
-      <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>Productos</Text>
-        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-          <Input
-            right
-            placeholder="icon right"
-            placeholderTextColor={materialTheme.COLORS.DEFAULT}
-            style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
-            iconContent={<Icon size={16} color={theme.COLORS.ICON} name="camera-18" family="GalioExtra" />}
-          />
-        </Block>
+
+      <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+        <Input
+          right
+          placeholder="Descubre..."
+          placeholderTextColor={materialTheme.COLORS.DEFAULT}
+          style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+          iconContent={<Icon size={16} color={theme.COLORS.ICON} name="shopping-bag" family="feather" />}
+        />
       </Block>
+
     )
   }
-  
+
+  /*
+  <Block flex style={styles.group}>
+        <Text bold size={16} style={styles.title}>Tiendas</Text>
+        </Block>
   renderSwitches = () => {
     return (
       <Block flex style={styles.group}>
@@ -178,11 +183,11 @@ export default class Products extends React.Component {
           <Block style={{ marginBottom: theme.SIZES.BASE }}>
             <Header back title="Title" navigation={this.props.navigation} />
           </Block>
-
+  
           <Block style={{ marginBottom: theme.SIZES.BASE }}>
             <Header search title="Title" navigation={this.props.navigation} />
           </Block>
-
+  
           <Block style={{ marginBottom: theme.SIZES.BASE }}>
             <Header
               tabs
@@ -247,21 +252,57 @@ export default class Products extends React.Component {
       </Block>
     )
   }
-  
+  */
   renderCards = () => {
     return (
-      <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>Cards</Text>
-        <Block flex>
-          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Product product={products[0]} horizontal />
-            <Block flex row>
+
+
+      <Block flex>
+        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Block flex row>
+            <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[2]} />
+          </Block>
+          <Block flex row>
+            <Product product={products[4]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[0]} />
+          </Block>
+          <Block flex row>
+            <Product product={products[3]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[2]} />
+          </Block>
+          <Block flex row>
+            <Product product={products[4]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[0]} />
+          </Block>
+          <Block flex row>
+            <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[2]} />
+          </Block>
+          <Block flex row>
+            <Product product={products[3]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[0]} />
+          </Block>
+          <Block flex row>
+            <Product product={products[2]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[0]} />
+          </Block>
+          <Product product={products[4]} full />
+        </Block>
+      </Block>
+
+    )
+  }
+  /*
+  <Block flex style={styles.group}>
+  </Block>
+     <Text bold size={16} style={styles.title}></Text>
+  <Block flex row>
               <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
               <Product product={products[2]} />
             </Block>
-            <Product product={products[3]} horizontal />
-            <Product product={products[4]} full />
-            <Block flex card shadow style={styles.category}>
+  
+  <Block flex card shadow style={styles.category}>
               <ImageBackground
                 source={{ uri: Images.Products['Accessories'] }}
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
@@ -271,15 +312,11 @@ export default class Products extends React.Component {
                 </Block>
               </ImageBackground>
             </Block>
-          </Block>
-        </Block>
-      </Block>
-    )
-  }
-  
+  */
+  /*
   renderAlbum = () => {
     const { navigation } = this.props;
-
+  
     return (
       <Block flex style={[styles.group, { paddingBottom: theme.SIZES.BASE * 5 }]}>
         <Text bold size={16} style={styles.title}>Album</Text>
@@ -307,22 +344,24 @@ export default class Products extends React.Component {
       </Block>
     )
   }
-
+  */
+  /*  {this.renderButtons()}
+     {this.renderText()}
+     {this.renderSwitches()}
+     {this.renderTableCell()}
+     {this.renderNavigation()}
+     {this.renderSocial()}
+     {this.renderAlbum()}
+  */
   render() {
     return (
       <Block flex center>
         <ScrollView
           style={styles.components}
           showsVerticalScrollIndicator={false}>
-            {this.renderButtons()}
-            {this.renderText()}
-            {this.renderInputs()}
-            {this.renderSwitches()}
-            {this.renderTableCell()}
-            {this.renderNavigation()}
-            {this.renderSocial()}
-            {this.renderCards()}
-            {this.renderAlbum()}
+
+          {this.renderInputs()}
+          {this.renderCards()}
         </ScrollView>
       </Block>
     );
