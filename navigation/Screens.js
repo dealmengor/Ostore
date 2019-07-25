@@ -159,7 +159,7 @@ const HomeStack = createStackNavigator({
   transitionConfig,
 });
 
-//Navegación sin entrada en el menú de navegación
+//Interactividad sin entrada en el menú de navegación
 const AppStack = createDrawerNavigator(
   {
     Onboarding: {
@@ -210,14 +210,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    Stores: {
-      screen: StoresStack,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Departamentos" />
-        ),
-      }),
-    },
+    
     /*Insights: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
