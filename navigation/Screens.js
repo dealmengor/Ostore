@@ -131,7 +131,14 @@ const AppStack = createDrawerNavigator(
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="Home" title="Mi Tienda" />
         ),
-      })
+      }),
+    Woman: {
+      screen: HomeStack,
+      navigationOptions: {
+        drawerLabel: ({focused}) => (
+          <Drawer focused={focused} screen="Home" title="Woman" />
+        )
+      }
     },
     Man: {
       screen: ProScreen,

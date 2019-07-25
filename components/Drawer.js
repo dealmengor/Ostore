@@ -5,7 +5,8 @@ import { Block, Text, theme } from "galio-framework";
 import Icon from './Icon';
 import materialTheme from '../constants/Theme';
 
-const proScreens = ['Mi Tienda', 'Man', 'Kids', 'New Collection', 'Sign In', 'Sign Up'];
+const proScreens = ['n'];
+//const proScreens = ['Woman', 'Man', 'Kids', 'New Collection', 'Sign In', 'Sign Up'];
 
 class DrawerItem extends React.Component {
   renderIcon = () => {

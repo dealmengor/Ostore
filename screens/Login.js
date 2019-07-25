@@ -1,15 +1,25 @@
-import React from 'react';
-import { ImageBackground, StyleSheet, StatusBar, Dimensions, Platform } from 'react-native';
-import { Block, Button, Text, theme } from 'galio-framework';
-
-const { height, width } = Dimensions.get('screen');
-
+/*import React, {Component} from 'react';
+import styles from '../../resources/styles/LoginStyle' 
 import materialTheme from '../constants/Theme';
 import Images from '../constants/Images';
+import {Image, Text, View, TextInput, ScrollView, KeyboardAvoidingView,TouchableHighlight } from 'react-native';
+import { Button } from 'react-native-elements';
+const { width } = Dimensions.get('screen');
 
-export default class Login extends React.Component {
+ 
+export default class LoginScreen extends React.Component {
+  
+
   render() {
-    const { navigation } = this.props;
+    return (
+        <ScrollView>
+            <KeyboardAvoidingView style={styles.containerView} behavior="padding" enabled>
+                <View style={styles.loginScreenContainer}>
+                    <View style={styles.loginFormView}>
+                        <View style={styles.logoText}>
+                            <Image source={{  uri: Images.Onboarding }}
+                                   style={{ height: height, width: width, zIndex: 1 }}/>
+                        </View>
 
     return (
       <Block flex style={styles.container}>
@@ -39,21 +49,26 @@ export default class Login extends React.Component {
       
     );
   }
+/*
+  _signInAsync = async () => {
+    //await AsyncStorage.setItem('userToken', 'abc');
+    this.props.navigation.navigate('Home');
+  };
+
+  componentDidMount() {
+  }
+
+  componentWillUnmount() {
+  }
+
+  onRegisterPress() {
+    this.props.navigation.navigate('Modoreg');
+  }
+
+  onForgotPress() {
+    this.props.navigation.navigate('ForgotPassword');
+  }
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.COLORS.BLACK,
-  },
-  padded: {
-    paddingHorizontal: theme.SIZES.BASE * 2,
-    position: 'relative',
-    bottom: theme.SIZES.BASE,
-  },
-  button: {
-    width: width - theme.SIZES.BASE * 4,
-    height: theme.SIZES.BASE * 3,
-    shadowRadius: 0,
-    shadowOpacity: 0,
-  },
-});
+*/
