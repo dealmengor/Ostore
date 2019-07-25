@@ -10,6 +10,7 @@ import LoginScreen from '../screens/Login';
 import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
+import MystoreScreen from '../screens/Mystore';
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -125,6 +126,12 @@ const AppStack = createDrawerNavigator(
         drawerLabel: () => {},
       },
     },
+    Mystore: {
+      screen: MystoreScreen,
+      navigationOptions: {
+        drawerLabel: () => {},
+      },
+    },
     Home: {
       screen: HomeStack,
       navigationOptions: {
@@ -142,12 +149,12 @@ const AppStack = createDrawerNavigator(
       }),
     },
     MyStore: {
-      screen: HomeStack,
-      navigationOptions: {
+      screen: MystoreScreen,
+      navigationOptions: (navOpt) =>({
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="Home" title="Mi Tienda" />
         )
-      }
+      }),
     },
     Departments: {
       screen: ProScreen,
