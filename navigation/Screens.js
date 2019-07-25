@@ -125,13 +125,6 @@ const AppStack = createDrawerNavigator(
         )
       }
     },
-    MiTienda: {
-      screen: ProfileStack,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Home" title="Mi Tienda" />
-        ),
-      }),
     Woman: {
       screen: HomeStack,
       navigationOptions: {
@@ -148,11 +141,11 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    Insights: {
+    Kids: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Insights" />
+          <Drawer focused={focused} screen="Pro" title="Kids" />
         ),
       }),
     },
@@ -160,7 +153,7 @@ const AppStack = createDrawerNavigator(
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Favoritos" />
+          <Drawer focused={focused} screen="Pro" title="New Collection" />
         ),
       }),
     },
@@ -170,17 +163,17 @@ const AppStack = createDrawerNavigator(
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="Profile" title="Profile" />
         ),
-      }), 
+      }),
     },
     Settings: {
       screen: SettingsStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Settings" title="Configuración" />
+          <Drawer focused={focused} screen="Settings" title="Settings" />
         ),
       }),
     },
-   Components: {
+    Components: {
       screen: ComponentsStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -198,11 +191,11 @@ const AppStack = createDrawerNavigator(
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Cerrar Sesión" />
+          <Drawer focused={focused} screen="Pro" title="Sign In" />
         ),
       }),
     },
-  SignUp: {
+    SignUp: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -212,7 +205,7 @@ const AppStack = createDrawerNavigator(
     },
   },
   Menu
-  });
+);
 
 const AppContainer = createAppContainer(AppStack);
 export default AppContainer;
