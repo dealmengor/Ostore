@@ -21,7 +21,7 @@ class DrawerItem extends React.Component {
             family="font-awesome"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
-      case 'Woman':
+      case 'My Store':
         return (
           <Icon
             size={16}
@@ -29,12 +29,12 @@ class DrawerItem extends React.Component {
             family="GalioExtra"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
-      case 'Man':
+      case 'Departments':
         return (
           <Icon
             size={16}
-            name="man"
-            family="entypo"
+            name="th-large"
+            family="font-awesome"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
       case 'Kids':
