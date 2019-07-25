@@ -25,9 +25,9 @@ export default class Login extends React.Component {
         <Block flex space="between" style={styles.padded}>
           <Block flex space="around" style={{ zIndex: 2 }}>
             <Block center >
-            <Image source={require('../assets/images/icon.png')} style={{width: 250, height: 250}}/>
-              <Input placeholder="Email" />
-              <Input placeholder="password" />
+            <Image source={require('../assets/images/login.png')} style={{width: 220, height: 210}}/>
+              <Input placeholder="Correo" />
+              <Input placeholder="Contraseña" />
               
               <Button
                 shadowless
