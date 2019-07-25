@@ -40,10 +40,10 @@ const Drawer = (props) => (
 */
 const profile = {
   avatar: Images.Profile,
-  name: 'Rachel Brown',
-  type: 'Seller',
+  name: 'Demo_User',
+  type: 'Owner',
   plan: '',
-  rating: 4.8
+  rating: ''
 };
 
 const Menu = {

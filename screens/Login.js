@@ -21,30 +21,32 @@ export default class LoginScreen extends React.Component {
                                    style={{ height: height, width: width, zIndex: 1 }}/>
                         </View>
 
-                        <TextInput placeholder="Correo" placeholderColor="#93c572" style={styles.loginFormTextInput} />
-                        <TextInput placeholder="Contraseña" placeholderColor="#93c572" style={styles.loginFormTextInput} secureTextEntry={true}/>
-                        <Button
-                        buttonStyle={styles.loginButton}
-                        onPress={() => this._signInAsync()}
-                        title="Iniciar Sesión"
-                        textStyle={{fontFamily: 'KhmerUI'}}
-                        />
-                        <Button
-                        buttonStyle={styles.loginButton}
-                        onPress={() => this.onRegisterPress()}
-                        title="Registrarse"
-                        textStyle={{fontFamily: 'KhmerUI'}}
-                        />
-                        <TouchableHighlight 
-                        style={styles.button}
-                        onPress={()=> this.onForgotPress()}
-                        >
-                        <Text style={styles.forgotpass}>¿Olvidaste la contraseña?</Text>
-                        </TouchableHighlight>
-                    </View>
-                </View>
-            </KeyboardAvoidingView>
-        </ScrollView>
+    return (
+      <Block flex style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <Block flex center>
+          <ImageBackground
+            source={{  uri: Images.Onboarding }}
+            style={{ height: height, width: width, zIndex: 1 }}
+            //marginTop: '-55%'
+          />
+        </Block>
+        <Block flex space="between" style={styles.padded}>
+          <Block flex space="around" style={{ zIndex: 2 }}>
+        
+            <Block center>
+              <Button
+                shadowless
+                style={styles.button}
+                color={materialTheme.COLORS.INFO}
+                onPress={() => navigation.navigate('Home')}>
+                Empezar
+              </Button>
+            </Block>
+          </Block>
+        </Block>
+        </Block>
+      
     );
   }
 /*
