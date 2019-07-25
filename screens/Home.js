@@ -20,7 +20,7 @@ export default class Home extends React.Component {
         color="black"
         style={styles.search}
         iconContent={iconCamera}
-        placeholder= "&#201;"
+        placeholder="¿Qué buscas?"
         onFocus={() => navigation.navigate('Pro')}
       />
     )

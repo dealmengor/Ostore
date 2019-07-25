@@ -7,9 +7,12 @@ import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
 import OnboardingScreen from '../screens/Onboarding';
 import LoginScreen from '../screens/Login';
+import ProductsScreen from '../screens/Products';
+import StoresScreen from '../screens/Stores';
 import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
+import MystoreScreen from '../screens/Mystore';
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -64,7 +67,20 @@ const ProfileStack = createStackNavigator({
   cardStyle: { backgroundColor: '#EEEEEE', },
   transitionConfig,
 });
-
+/*
+const MystoreStack = createStackNavigator({
+  Profile: {
+    screen: MystoreScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header black transparent title="Mi Tienda" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
+}, {
+  cardStyle: { backgroundColor: '#EEEEEE', },
+  transitionConfig,
+});
+*/
 const SettingsStack = createStackNavigator({
   Settings: {
     screen: SettingsScreen,
@@ -125,6 +141,24 @@ const AppStack = createDrawerNavigator(
         drawerLabel: () => {},
       },
     },
+    Mystore: {
+      screen: MystoreScreen,
+      navigationOptions: {
+        drawerLabel: () => {},
+      },
+    },
+    Stores: {
+      screen: StoresScreen,
+      navigationOptions: {
+        drawerLabel: () => {},
+      },
+    },
+    Products: {
+      screen: ProductsScreen,
+      navigationOptions: {
+        drawerLabel: () => {},
+      },
+    },
     Home: {
       screen: HomeStack,
       navigationOptions: {
@@ -142,12 +176,12 @@ const AppStack = createDrawerNavigator(
       }),
     },
     MyStore: {
-      screen: HomeStack,
-      navigationOptions: {
+      screen: MystoreScreen,
+      navigationOptions: (navOpt) =>({
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="Home" title="Mi Tienda" />
         )
-      }
+      }),
     },
     Departments: {
       screen: ProScreen,
