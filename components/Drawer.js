@@ -17,16 +17,16 @@ class DrawerItem extends React.Component {
         return (
           <Icon
             size={16}
-            name="shop"
-            family="GalioExtra"
+            name="home"
+            family="font-awesome"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
       case 'Woman':
         return (
           <Icon
             size={16}
-            name="md-woman"
-            family="ionicon"
+            name="shop"
+            family="GalioExtra"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
       case 'Man':
