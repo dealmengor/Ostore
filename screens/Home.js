@@ -31,13 +31,13 @@ export default class Home extends React.Component {
 
     return (
       <Block row style={styles.tabs}>
-        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Home')}>
+        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Stores')}>
           <Block row middle>
           <Icon name="store" family="material" style={{ paddingRight: 8 }} />
             <Text size={16} style={styles.tabTitle}>{tabTitleLeft || 'Tiendas'}</Text>
           </Block>
         </Button>
-        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Home')}>
+        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Products')}>
           <Block row middle>
           <Icon size={16} name="shopping-bag" family="feather" style={{ paddingRight: 8 }} />
             <Text size={16} style={styles.tabTitle}>{tabTitleRight || 'Productos'}</Text>

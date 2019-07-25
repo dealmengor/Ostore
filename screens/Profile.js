@@ -24,9 +24,7 @@ export default class Profile extends React.Component {
                 <Text color="white" size={28} style={{ paddingBottom: 8 }}>Rachel Brown</Text>
                 <Block row space="between">
                   <Block row>
-                    <Block middle style={styles.pro}>
-                      <Text size={16} color="white">Pro</Text>
-                    </Block>
+                    
                     <Text color="white" size={16} muted style={styles.seller}>Seller</Text>
                     <Text size={16} color={materialTheme.COLORS.WARNING}>
                       4.8 <Icon name="shape-star" family="GalioExtra" size={14} />
@@ -82,7 +80,11 @@ export default class Profile extends React.Component {
     );
   }
 }
-
+//Pro Tag
+/*<Block middle style={styles.pro}>
+<Text size={16} color="white">Pro</Text>
+</Block>
+*/
 const styles = StyleSheet.create({
   profile: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
@@ -106,6 +108,7 @@ const styles = StyleSheet.create({
     paddingVertical: theme.SIZES.BASE * 2,
     zIndex: 2
   },
+  /*
   pro: {
     backgroundColor: materialTheme.COLORS.LABEL,
     paddingHorizontal: 6,
@@ -114,6 +117,7 @@ const styles = StyleSheet.create({
     height: 19,
     width: 38,
   },
+  */
   seller: {
     marginRight: theme.SIZES.BASE / 2,
   },

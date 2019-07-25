@@ -21,21 +21,19 @@ export default class Mystore extends React.Component {
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="white" size={28} style={{ paddingBottom: 8 }}>SimpleStore</Text>
+                <Text color="black" size={28} style={{ paddingBottom: 8 }}>SimpleStore</Text>
                 <Block row space="between">
                   <Block row>
-                    <Block middle style={styles.pro}>
-                      <Text size={9} color="white">NEW</Text>
-                    </Block>
-                    <Text color="white" size={16} muted style={styles.seller}> Electronics</Text>
-                    <Text size={16} color={materialTheme.COLORS.WARNING}>
+                   
+                    <Text color={theme.COLORS.WHITE} size={16} muted style={styles.seller}> Electronics</Text>
+                    <Text size={16} color={materialTheme.COLORS.PRIMARY}>
                     
                     </Text>
                   </Block>
                   <Block>
-                    <Text color={theme.COLORS.TWITTER} size={16}>
-                      <Icon name="map-marker" family="font-awesome" color={theme.COLORS.FACEBOOK } size={16} />
-                      {` `} Ciudad de Panamá, PA
+                      <Text color={theme.COLORS.WHITE} size={16}>
+                      <Icon name="map-marker" family="font-awesome" color={theme.COLORS.WHITE} size={16} />
+                      {` `} Panamá, PA
                       </Text>
                   </Block>
                 </Block>
@@ -62,7 +60,7 @@ export default class Mystore extends React.Component {
             </Block>
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
               <Text size={16}>Catálago de Productos</Text>
-              <Text size={12} color={theme.COLORS.TWITTER} onPress={() => this.props.navigation.navigate('Home')}>Mostrar Todos</Text>
+              <Text size={12} color="black" onPress={() => this.props.navigation.navigate('Home')}>Mostrar Todos</Text>
             </Block>
             <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >

@@ -1,4 +1,4 @@
-const Onboarding = "https://asimplecompany.000webhostapp.com/WEBSERVER/Ostore/Onboardin_Coffee.png";
+const Onboarding = "https://asimplecompany.000webhostapp.com/WEBSERVER/Ostore/Onboarding_Coffee.png";
 const ImgLogin = 'https://asimplecompany.000webhostapp.com/WEBSERVER/Ostore/Stars.png';
 const StoreLogo = 'https://asimplecompany.000webhostapp.com/WEBSERVER/Ostore/SimpleStore%20logo1.png';
 const Pro = 'https://images.unsplash.com/photo-1485796826113-174aa68fd81b?fit=crop&w=840&q=80';
