@@ -55,7 +55,7 @@ const transitionConfig = (transitionProps, prevTransitionProps) => ({
 })
 
 
-//Stacks
+//Stacks Principales
 
 const ProfileStack = createStackNavigator({
   Profile: {
@@ -83,6 +83,31 @@ const MystoreStack = createStackNavigator({
   transitionConfig,
 });
 
+const DepartmentsStack = createStackNavigator({
+  Departments: {
+    screen: DepartmentsScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header black transparent title="Departamentos" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
+}, {
+  cardStyle: { backgroundColor: '#EEEEEE', },
+  transitionConfig,
+});
+
+const ComponentsStack = createStackNavigator({
+  Components: {
+    screen: ComponentsScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="Components" navigation={navigation} />,
+    })
+  },
+}, {
+  cardStyle: { backgroundColor: '#EEEEEE', },
+  transitionConfig,
+});
+
 /*
 const SettingsStack = createStackNavigator({
   Settings: {
@@ -97,18 +122,7 @@ const SettingsStack = createStackNavigator({
 });
 */
 
-const ComponentsStack = createStackNavigator({
-  Components: {
-    screen: ComponentsScreen,
-    navigationOptions: ({ navigation }) => ({
-      header: <Header title="Components" navigation={navigation} />,
-    })
-  },
-}, {
-  cardStyle: { backgroundColor: '#EEEEEE', },
-  transitionConfig,
-});
-
+//Stack de Navegación Múltiple HOME.JS 
 const HomeStack = createStackNavigator({
   Home: {
     screen: HomeScreen,
@@ -120,6 +134,20 @@ const HomeStack = createStackNavigator({
     screen: DepartmentsScreen,
     navigationOptions: ({navigation}) => ({
       header: <Header back black transparent title="Departamentos" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
+  Stores: {
+    screen: StoresScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header back black transparent title="Tiendas" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
+  Products: {
+    screen: ProductsScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header back black transparent title="Productos" navigation={navigation} />,
       headerTransparent: true,
     })
   },
@@ -143,19 +171,6 @@ const AppStack = createDrawerNavigator(
   
     Login: {
       screen: LoginScreen,
-      navigationOptions: {
-        drawerLabel: () => {},
-      },
-    },
-  
-    Stores: {
-      screen: StoresScreen,
-      navigationOptions: {
-        drawerLabel: () => {},
-      },
-    },
-    Products: {
-      screen: ProductsScreen,
       navigationOptions: {
         drawerLabel: () => {},
       },
@@ -186,11 +201,12 @@ const AppStack = createDrawerNavigator(
         )
       }),
     },
+    
     Departments: {
-      screen: ProScreen,
+      screen: DepartmentsStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Departamentos" />
+          <Drawer focused={focused} screen="Departments" title="Departamentos" />
         ),
       }),
     },

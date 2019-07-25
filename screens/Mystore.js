@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform, TextInput } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -21,14 +21,9 @@ export default class Mystore extends React.Component {
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="black" size={28} style={{ paddingBottom: 8 }}>SimpleStore</Text>
                 <Block row space="between">
                   <Block row>
-                   
-                    <Text color={theme.COLORS.WHITE} size={16} muted style={styles.seller}> Electronics</Text>
-                    <Text size={16} color={materialTheme.COLORS.PRIMARY}>
-                    
-                    </Text>
+                    <Text color={theme.COLORS.WHITE} size={16} muted style={styles.seller}> Simple Store</Text>
                   </Block>
                   <Block>
                       <Text color={theme.COLORS.WHITE} size={16}>
@@ -44,23 +39,14 @@ export default class Mystore extends React.Component {
         </Block>
         <Block flex style={styles.options}>
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Block row space="between" style={{ padding: theme.SIZES.BASE, }}>
-              <Block middle>
-                <Text bold size={12} style={{marginBottom: 8}}>5</Text>
-                <Text muted size={12}>Ordenes</Text>
-              </Block>
-              <Block middle>
-                <Text bold size={12} style={{marginBottom: 8}}>7</Text>
-                <Text muted size={12}>Clientes</Text>
-              </Block>
-              <Block middle>
-                <Text bold size={12} style={{marginBottom: 8}}>15</Text>
-                <Text muted size={12}>Mensajes</Text>
-              </Block>
+
+             <Block>
+            <Text bold size={16} style={{marginBottom: 8}}>Descripción:</Text>
+            <TextInput muted size={12} >Compra y venta de productos en general.</TextInput>
             </Block>
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
-              <Text size={16}>Catálago de Productos</Text>
-              <Text size={12} color="black" onPress={() => this.props.navigation.navigate('Home')}>Mostrar Todos</Text>
+              <Text bold size={16}>Catálago de Productos</Text>
+              <Text bold size={12} color={materialTheme.COLORS.PRIMARY} onPress={() => this.props.navigation.navigate('Home')}>Mostrar Todos</Text>
             </Block>
             <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >
