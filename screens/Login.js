@@ -1,12 +1,13 @@
 /*import React, {Component} from 'react';
 import styles from '../../resources/styles/LoginStyle' 
-import logo from '../../assets/images/logo.png';
+import materialTheme from '../constants/Theme';
+import Images from '../constants/Images';
 import {Image, Text, View, TextInput, ScrollView, KeyboardAvoidingView,TouchableHighlight } from 'react-native';
 import { Button } from 'react-native-elements';
+const { width } = Dimensions.get('screen');
 
-
-
-export default class LoginScreen extends Component {
+ 
+export default class LoginScreen extends React.Component {
   
 
   render() {
@@ -16,7 +17,8 @@ export default class LoginScreen extends Component {
                 <View style={styles.loginScreenContainer}>
                     <View style={styles.loginFormView}>
                         <View style={styles.logoText}>
-                            <Image style={styles.images} source={logo} />
+                            <Image source={{  uri: Images.Onboarding }}
+                                   style={{ height: height, width: width, zIndex: 1 }}/>
                         </View>
 
                         <TextInput placeholder="Correo" placeholderColor="#93c572" style={styles.loginFormTextInput} />
@@ -45,7 +47,7 @@ export default class LoginScreen extends Component {
         </ScrollView>
     );
   }
-
+/*
   _signInAsync = async () => {
     //await AsyncStorage.setItem('userToken', 'abc');
     this.props.navigation.navigate('Home');
@@ -66,4 +68,5 @@ export default class LoginScreen extends Component {
   }
 
 }
+
 */
