@@ -23,7 +23,7 @@ export default class Stores extends React.Component {
   };
 
   toggleSwitch = switchId => this.setState({ [switchId]: !this.state[switchId] });
-  
+ /* 
   renderButtons = () => {
     return (
       <Block flex>
@@ -92,7 +92,8 @@ export default class Stores extends React.Component {
       </Block>
     )
   }
-  
+ */ 
+/*
   renderText = () => {
     return (
       <Block flex style={styles.group}>
@@ -109,24 +110,25 @@ export default class Stores extends React.Component {
       </Block>
     )
   }
-  
+  */
   renderInputs = () => {
     return (
       <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>Inputs</Text>
+        <Text bold size={16} style={styles.title}>Tiendas</Text>
         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
           <Input
             right
-            placeholder="icon right"
+            placeholder="Busca tu tienda favorita"
             placeholderTextColor={materialTheme.COLORS.DEFAULT}
             style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
-            iconContent={<Icon size={16} color={theme.COLORS.ICON} name="camera-18" family="GalioExtra" />}
+            iconContent={<Icon size={16} color={theme.COLORS.ICON} name="store" family="material" />}
           />
         </Block>
       </Block>
     )
   }
   
+/*
   renderSwitches = () => {
     return (
       <Block flex style={styles.group}>
@@ -247,21 +249,37 @@ export default class Stores extends React.Component {
       </Block>
     )
   }
-  
+  */
   renderCards = () => {
     return (
-      <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>Cards</Text>
+      
+   
         <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
             <Product product={products[0]} horizontal />
-            <Block flex row>
+            <Product product={products[1]} horizontal />
+            <Product product={products[3]} horizontal />
+            <Product product={products[2]} horizontal />
+            <Product product={products[2]} horizontal />
+            <Product product={products[4]} horizontal />
+            <Product product={products[0]} horizontal />
+            <Product product={products[3]} horizontal />
+            <Product product={products[4]} full />
+          </Block>
+        </Block>
+      
+    )
+  }
+/*
+<Block flex style={styles.group}>
+</Block>
+     <Text bold size={16} style={styles.title}></Text>
+ <Block flex row>
               <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
               <Product product={products[2]} />
             </Block>
-            <Product product={products[3]} horizontal />
-            <Product product={products[4]} full />
-            <Block flex card shadow style={styles.category}>
+
+ <Block flex card shadow style={styles.category}>
               <ImageBackground
                 source={{ uri: Images.Products['Accessories'] }}
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
@@ -271,12 +289,8 @@ export default class Stores extends React.Component {
                 </Block>
               </ImageBackground>
             </Block>
-          </Block>
-        </Block>
-      </Block>
-    )
-  }
-  
+*/
+  /*
   renderAlbum = () => {
     const { navigation } = this.props;
 
@@ -307,22 +321,24 @@ export default class Stores extends React.Component {
       </Block>
     )
   }
-
-  render() {
+  */
+/*  {this.renderButtons()}
+     {this.renderText()}
+     {this.renderSwitches()}
+     {this.renderTableCell()}
+     {this.renderNavigation()}
+     {this.renderSocial()}
+     {this.renderAlbum()}
+*/
+render() {
     return (
       <Block flex center>
         <ScrollView
           style={styles.components}
           showsVerticalScrollIndicator={false}>
-            {this.renderButtons()}
-            {this.renderText()}
+
             {this.renderInputs()}
-            {this.renderSwitches()}
-            {this.renderTableCell()}
-            {this.renderNavigation()}
-            {this.renderSocial()}
-            {this.renderCards()}
-            {this.renderAlbum()}
+            {this.renderCards()} 
         </ScrollView>
       </Block>
     );

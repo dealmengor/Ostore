@@ -113,7 +113,7 @@ export default class Products extends React.Component {
   renderInputs = () => {
     return (
       <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>Inputs</Text>
+        <Text bold size={16} style={styles.title}>Productos</Text>
         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
           <Input
             right
