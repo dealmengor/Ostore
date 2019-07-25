@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image } from 'react-native';
+import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, AsyncStorage,Alert } from 'react-native';
 import { Block, Button, Text, theme,Input } from 'galio-framework';
 
 const { height, width } = Dimensions.get('screen');
@@ -8,7 +8,14 @@ import materialTheme from '../constants/Theme';
 import Images from '../constants/Images';
 
 export default class Login extends React.Component {
+  state = {
+    username: '',
+    password: ''
+  };
 
+  onChangeText = (key, val) => {
+    this.setState({ [key]: val});
+  }
 
   render() {
     const { navigation } = this.props;
@@ -26,14 +33,19 @@ export default class Login extends React.Component {
           <Block flex space="around" style={{ zIndex: 2 }}>
             <Block center >
             <Image source={require('../assets/images/icon.png')} style={{width: 250, height: 250}}/>
-              <Input placeholder="Email" />
-              <Input placeholder="password" />
+              <Input placeholder="Email" 
+              onChangeText={val => this.onChangeText('username', val)}
+              />
+              <Input placeholder="password" 
+              onChangeText={val => this.onChangeText('password', val)}
+              secureTextEntry={true}
+              />
               
               <Button
                 shadowless
                 style={styles.button}
                 color={materialTheme.COLORS.INFO}
-                onPress={() => navigation.navigate('Home')}>
+                onPress={() => this._signInAsync()}>
                 Iniciar Sesión
               </Button>
             </Block>
@@ -43,6 +55,49 @@ export default class Login extends React.Component {
       
     );
   }
+
+  _signInAsync = async () => {
+
+      if (this.isEmpty(this.state.username) || this.isEmpty(this.state.password)){
+        Alert.alert('Datos vacios', 'Las credenciales introducidas, no son las correctas');
+        return null;
+      }else{
+        fetch('http://18.224.109.128:8000/login/', {
+          method: 'POST',
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              correo: this.state.username,
+              password: this.state.password,
+            }),
+        })
+        .then((response) => {
+
+          console.log(response);
+          return response.json();
+        })
+        .then((responseJson) => {
+          if (responseJson.access){
+            AsyncStorage.setItem('userToken', JSON.stringify(responseJson.access));
+            AsyncStorage.setItem('userTokenRefresh', JSON.stringify(responseJson.refresh));
+            this.props.navigation.navigate('Home');
+          }else{
+            Alert.alert('Error de LogIn', 'Las credenciales introducidas, no son las correctas');
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
+
+  isEmpty(str) {
+    return (!str || 0 === str.length);
+  }
+
+  //http://18.224.109.128:8000/login/
 }
 
 const styles = StyleSheet.create({

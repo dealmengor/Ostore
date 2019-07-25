@@ -149,7 +149,7 @@ const AppStack = createDrawerNavigator(
         )
       }
     },
-    Departments: {
+    /*Departments: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -157,7 +157,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    /*Insights: {
+    Insights: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -165,7 +165,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    /*Favorites: {
+    Favorites: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
