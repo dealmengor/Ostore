@@ -83,6 +83,18 @@ const MystoreStack = createStackNavigator({
   transitionConfig,
 });
 
+const StoresStack = createStackNavigator({
+  Stores: {
+    screen: StoresScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header black transparent title="Tiendas" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
+}, {
+  cardStyle: { backgroundColor: '#EEEEEE', },
+  transitionConfig,
+});
 /*
 const SettingsStack = createStackNavigator({
   Settings: {
@@ -188,6 +200,14 @@ const AppStack = createDrawerNavigator(
     },
     Departments: {
       screen: ProScreen,
+      navigationOptions: (navOpt) => ({
+        drawerLabel: ({focused}) => (
+          <Drawer focused={focused} screen="Pro" title="Departamentos" />
+        ),
+      }),
+    },
+    Stores: {
+      screen: StoresStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="Pro" title="Departamentos" />

@@ -113,22 +113,24 @@ export default class Stores extends React.Component {
   */
   renderInputs = () => {
     return (
-      <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>Tiendas</Text>
+      
         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
           <Input
             right
-            placeholder="Busca tu tienda favorita"
+            placeholder="Descubre..."
             placeholderTextColor={materialTheme.COLORS.DEFAULT}
             style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
             iconContent={<Icon size={16} color={theme.COLORS.ICON} name="store" family="material" />}
           />
         </Block>
-      </Block>
+      
     )
   }
   
 /*
+<Block flex style={styles.group}>
+        <Text bold size={16} style={styles.title}>Tiendas</Text>
+        </Block>
   renderSwitches = () => {
     return (
       <Block flex style={styles.group}>
