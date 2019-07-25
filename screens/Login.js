@@ -1,46 +1,40 @@
-/*import React, {Component} from 'react';
-import styles from '../../resources/styles/LoginStyle' 
+import React from 'react';
+import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image } from 'react-native';
+import { Block, Button, Text, theme,Input } from 'galio-framework';
+
+const { height, width } = Dimensions.get('screen');
+
 import materialTheme from '../constants/Theme';
 import Images from '../constants/Images';
-import {Image, Text, View, TextInput, ScrollView, KeyboardAvoidingView,TouchableHighlight } from 'react-native';
-import { Button } from 'react-native-elements';
-const { width } = Dimensions.get('screen');
 
- 
-export default class LoginScreen extends React.Component {
-  
+export default class Login extends React.Component {
+
 
   render() {
-    return (
-        <ScrollView>
-            <KeyboardAvoidingView style={styles.containerView} behavior="padding" enabled>
-                <View style={styles.loginScreenContainer}>
-                    <View style={styles.loginFormView}>
-                        <View style={styles.logoText}>
-                            <Image source={{  uri: Images.Onboarding }}
-                                   style={{ height: height, width: width, zIndex: 1 }}/>
-                        </View>
+    const { navigation } = this.props;
 
     return (
       <Block flex style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Block flex center>
           <ImageBackground
-            source={{  uri: Images.Onboarding }}
+            source={{  uri: Images.ImgLogin }}
             style={{ height: height, width: width, zIndex: 1 }}
-            //marginTop: '-55%'
           />
         </Block>
         <Block flex space="between" style={styles.padded}>
           <Block flex space="around" style={{ zIndex: 2 }}>
-        
-            <Block center>
+            <Block center >
+            <Image source={require('../assets/images/icon.png')} style={{width: 250, height: 250}}/>
+              <Input placeholder="Email" />
+              <Input placeholder="password" />
+              
               <Button
                 shadowless
                 style={styles.button}
                 color={materialTheme.COLORS.INFO}
                 onPress={() => navigation.navigate('Home')}>
-                Empezar
+                Iniciar Sesión
               </Button>
             </Block>
           </Block>
@@ -49,26 +43,21 @@ export default class LoginScreen extends React.Component {
       
     );
   }
-/*
-  _signInAsync = async () => {
-    //await AsyncStorage.setItem('userToken', 'abc');
-    this.props.navigation.navigate('Home');
-  };
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-  onRegisterPress() {
-    this.props.navigation.navigate('Modoreg');
-  }
-
-  onForgotPress() {
-    this.props.navigation.navigate('ForgotPassword');
-  }
-
 }
 
-*/
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: theme.COLORS.BLACK,
+  },
+  padded: {
+    paddingHorizontal: theme.SIZES.BASE * 2,
+    position: 'relative',
+    bottom: 100,
+  },
+  button: {
+    width: width - theme.SIZES.BASE * 4,
+    height: theme.SIZES.BASE * 3,
+    shadowRadius: 0,
+    shadowOpacity: 0,
+  },
+});

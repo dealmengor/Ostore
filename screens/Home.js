@@ -8,6 +8,8 @@ const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
 export default class Home extends React.Component {
+
+
   renderSearch = () => {
     const { navigation } = this.props;
     const iconCamera = <Icon size={16} color={theme.COLORS.MUTED} name="zoom-in" family="material" />
@@ -18,7 +20,7 @@ export default class Home extends React.Component {
         color="black"
         style={styles.search}
         iconContent={iconCamera}
-        placeholder="What are you looking for?"
+        placeholder="Que buscas?"
         onFocus={() => navigation.navigate('Pro')}
       />
     )

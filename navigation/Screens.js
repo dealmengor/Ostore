@@ -1,12 +1,12 @@
 import React from 'react';
 import { Easing, Animated, Platform } from 'react-native';
 import { createSwitchNavigator, createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
-
 import { Block, Text, theme } from "galio-framework";
 
 import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
 import OnboardingScreen from '../screens/Onboarding';
+import LoginScreen from '../screens/Login';
 import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
@@ -49,6 +49,8 @@ const transitionConfig = (transitionProps, prevTransitionProps) => ({
     return { transform: [{ translateX }] }
   }
 })
+
+
 
 const ProfileStack = createStackNavigator({
   Profile: {
@@ -117,6 +119,12 @@ const AppStack = createDrawerNavigator(
         drawerLabel: () => {},
       },
     },
+    Login: {
+      screen: LoginScreen,
+      navigationOptions: {
+        drawerLabel: () => {},
+      },
+    },
     Home: {
       screen: HomeStack,
       navigationOptions: {
@@ -149,7 +157,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    Insights: {
+    /*Insights: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -157,7 +165,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    Favorites: {
+    /*Favorites: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -172,7 +180,7 @@ const AppStack = createDrawerNavigator(
           <Drawer focused={focused} screen="Settings" title="Configuraciones" />
         ),
       }),
-    },
+    },*/
     Components: {
       screen: ComponentsStack,
       navigationOptions: (navOpt) => ({

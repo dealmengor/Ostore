@@ -23,13 +23,12 @@ export default class Onboarding extends React.Component {
         </Block>
         <Block flex space="between" style={styles.padded}>
           <Block flex space="around" style={{ zIndex: 2 }}>
-        
             <Block center>
               <Button
                 shadowless
                 style={styles.button}
                 color={materialTheme.COLORS.INFO}
-                onPress={() => navigation.navigate('Home')}>
+                onPress={() => navigation.navigate('Login')}>
                 Empezar
               </Button>
             </Block>
