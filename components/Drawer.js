@@ -21,6 +21,14 @@ class DrawerItem extends React.Component {
             family="font-awesome"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
+        case 'Perfil':
+        return (
+          <Icon
+            size={16}
+            name="circle-10"
+            family="GalioExtra"
+            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+        );
       case 'Mi Tienda':
         return (
           <Icon
@@ -41,27 +49,19 @@ class DrawerItem extends React.Component {
         return (
           <Icon
             size={16}
-            name="baby"
-            family="GalioExtra"
+            name="tachometer"
+            family="font-awesome"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
-      case 'New Collection':
+      case 'Favoritos':
         return (
           <Icon
             size={16}
-            name="grid-on"
-            family="material"
+            name="heart"
+            family="font-awesome"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
-      case 'Profile':
-        return (
-          <Icon
-            size={16}
-            name="circle-10"
-            family="GalioExtra"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
-        );
-      case 'Settings':
+      case 'Configuraciones':
         return (
           <Icon
             size={16}
@@ -77,7 +77,8 @@ class DrawerItem extends React.Component {
             family="ionicon"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
-      case 'Sign In':
+        
+      case 'Cerrar Sesión':
         return (
           <Icon
             size={16}
@@ -85,6 +86,7 @@ class DrawerItem extends React.Component {
             family="ionicon"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
+        /*
       case 'Sign Up':
         return (
           <Icon
@@ -93,6 +95,7 @@ class DrawerItem extends React.Component {
             family="ionicon"
             color={focused ? 'white' : materialTheme.COLORS.MUTED} />
         );
+        */
       default:
         return null;
     }
