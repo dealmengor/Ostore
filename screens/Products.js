@@ -2,15 +2,12 @@ import React from 'react';
 import {
   ScrollView,
   StyleSheet,
-  TouchableOpacity,
-  Image,
-  ImageBackground,
   Dimensions
 } from 'react-native';
-import { Button, Block, Text, Input, theme } from 'galio-framework';
+import { Block, Input, theme } from 'galio-framework';
 
-import { materialTheme, products, Images } from '../constants/';
-import { Select, Icon, Header, Product, Switch } from '../components/';
+import { materialTheme, products} from '../constants/';
+import { Icon, Product} from '../components/';
 
 const { width } = Dimensions.get('screen');
 
@@ -36,7 +33,7 @@ export default class Products extends React.Component {
 
   
   renderCards = () => {
-    const { navigation } = this.props;
+    
     return (
       <Block flex>
         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>

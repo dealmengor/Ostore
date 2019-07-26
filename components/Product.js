@@ -14,22 +14,15 @@ class Product extends React.Component {
 
     return (
       <TouchableWithoutFeedback onPress={() => navigation.navigate('Productdetails', { product: product })}>
-
         <Block row={horizontal} card flex style={[styles.product, styles.shadow, style]}>
-          
             <Block flex style={[styles.imageContainer, styles.shadow]}>
               <Image source={{ uri: product.imagecat ? product.imagecat : 'https://asimplecompany.000webhostapp.com/WEBSERVER/Ostore/Products/1.jpg'}} style={imageStyles} />
             </Block>
-          
             <Block flex space="between" style={styles.productDescription}>
               <Text size={14} style={styles.productTitle}>{product.prod_descripcion}</Text>
               <Text size={12} muted={!priceColor} color={priceColor}>${product.prod_price}</Text>
             </Block>
-
-            
         </Block>
-
-
       </TouchableWithoutFeedback>
     );
   }
