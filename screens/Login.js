@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, icon,AsyncStorage,Alert} from 'react-native';
 import { Block, Button, Text, theme,Input } from 'galio-framework'
-import { Select, Icon, Header, Product, Switch } from '../components/';
+import {  Icon } from '../components/';
 
 
 const { height, width } = Dimensions.get('screen');
@@ -59,19 +59,10 @@ export default class Login extends React.Component {
                 shadowless
                 style={styles.button}
                 color={materialTheme.COLORS.INFO}
-                onPress={() => this._signInAsync()}>
+                onPress={() => this.signInAsync()}>
                 Iniciar Sesión
               </Button>
             </Block>
-
-            <Button
-              shadowless
-              style={styles.button}
-              color={materialTheme.COLORS.INFO}
-              onPress={() => navigation.navigate('Home')}>
-              Iniciar Sesión
-              </Button>
-
           </Block>
         </Block>
       </Block>
@@ -79,8 +70,8 @@ export default class Login extends React.Component {
     );
   }
 
-  _signInAsync = async () => {
-
+  signInAsync = async () => {
+    console.log("response");
       if (this.isEmpty(this.state.username) || this.isEmpty(this.state.password)){
         Alert.alert('Datos vacios', 'Las credenciales introducidas, no son las correctas');
         return null;
@@ -120,10 +111,9 @@ export default class Login extends React.Component {
     return (!str || 0 === str.length);
   }
 
-  //http://18.224.109.128:8000/login/
+
 }
 
-//--- Inicia definicion de estilos
 
 const styles = StyleSheet.create({
   container: {
@@ -133,7 +123,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',
 
-    bottom: height/2 
+    bottom: height/2.5,
   },
 
   button: {
@@ -142,7 +132,7 @@ const styles = StyleSheet.create({
     shadowRadius: 0,
     shadowOpacity: 0,
     position: 'relative',
-    bottom: 20
+    bottom: -20
   },
 
   ostore_logo: {
