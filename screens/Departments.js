@@ -2,7 +2,7 @@ import React from 'react';
 import {
   ScrollView,
   StyleSheet,
-  Image,
+  TouchableOpacity,
   ImageBackground,
   Dimensions
 } from 'react-native';
@@ -16,9 +16,11 @@ const { width } = Dimensions.get('screen');
 export default class Departments extends React.Component {
 
   renderCards = () => {
+    const { navigation } = this.props;
     return (
           <Block>
             <Block flex card shadow style={styles.category}>
+            <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('Products')}>
               <ImageBackground
                 source={{ uri: Images.Products['Accessories'] }}
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
@@ -27,8 +29,10 @@ export default class Departments extends React.Component {
                   <Text size={18} bold color={theme.COLORS.WHITE}>Accesorios</Text>
                 </Block>
               </ImageBackground>
+              </TouchableOpacity>
             </Block>
             <Block flex card shadow style={styles.category}>
+            <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('Products')}>
               <ImageBackground
                 source={{ uri: Images.Products['Technology'] }}
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
@@ -37,8 +41,10 @@ export default class Departments extends React.Component {
                   <Text size={18} bold color={theme.COLORS.WHITE}>Tecnología</Text>
                 </Block>
               </ImageBackground>
+              </TouchableOpacity>
             </Block>
             <Block flex card shadow style={styles.category}>
+            <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('Products')}>
               <ImageBackground
                 source={{ uri: Images.Products['Fitness'] }}
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
@@ -47,12 +53,14 @@ export default class Departments extends React.Component {
                   <Text size={18} bold color={theme.COLORS.WHITE}>Fitness</Text>
                 </Block>
               </ImageBackground>
+              </TouchableOpacity>
             </Block>
             </Block>
     )
   }
 
   render() {
+
     return (
       <Block flex center>
         <ScrollView
