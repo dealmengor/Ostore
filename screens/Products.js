@@ -254,15 +254,18 @@ export default class Products extends React.Component {
   }
   */
   renderCards = () => {
+    const { navigation } = this.props;
     return (
-
-
       <Block flex>
         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+        <TouchableOpacity activeOpacity = { .5 }  onPress={() => navigation.navigate('Productdetails')}>
           <Block flex row>
+          
             <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
             <Product product={products[2]} />
+            
           </Block>
+          </TouchableOpacity>
           <Block flex row>
             <Product product={products[4]} style={{ marginRight: theme.SIZES.BASE }} />
             <Product product={products[0]} />

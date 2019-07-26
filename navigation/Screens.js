@@ -152,6 +152,7 @@ const HomeStack = createStackNavigator({
       headerTransparent: true,
     })
   },
+  /*
   Products: {
     screen: ProductsScreen,
     navigationOptions: ({ navigation }) => ({
@@ -266,6 +267,7 @@ const AppStack = createDrawerNavigator(
       navigationOptions: (navOpt) => ({
         drawerLabel: ({ focused }) => (
           <Drawer focused={focused} screen="Login" title="Cerrar Sesión" />
+
         ),
       }),
     },
