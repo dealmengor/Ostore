@@ -51,6 +51,7 @@ export default class Login extends React.Component {
                 onChangeText={val => this.onChangeText('password', val)}
                 placeholderTextColor={materialTheme.COLORS.DEFAULT}
                 style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+                secureTextEntry={true}
                 iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
               />
               <Button
@@ -74,7 +75,7 @@ export default class Login extends React.Component {
         Alert.alert('Datos vacios', 'Las credenciales introducidas, no son las correctas');
         return null;
       }else{
-        fetch('http://18.224.109.128:8000/login/', {
+        fetch('http://18.219.213.57:8000/login/', {
           method: 'POST',
           headers: {
               Accept: 'application/json',
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',
-    bottom: 100,
+    bottom: height/2 ,
   },
   button: {
     width: width - theme.SIZES.BASE * 4,
