@@ -54,7 +54,7 @@ export default class Products extends React.Component {
     )
   }
 
-  
+
   renderCards = () => {
 
     const { navigation } = this.props;
@@ -78,7 +78,7 @@ export default class Products extends React.Component {
 
     )
   }
- 
+
   render() {
 
     if(this.state.loading){
@@ -164,9 +164,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 4,
   },
-  rows: {
-    height: theme.SIZES.BASE * 2,
-  },
+
   social: {
     width: theme.SIZES.BASE * 3.5,
     height: theme.SIZES.BASE * 3.5,
@@ -178,13 +176,7 @@ const styles = StyleSheet.create({
     marginVertical: theme.SIZES.BASE / 2,
     borderWidth: 0,
   },
-  categoryTitle: {
-    height: '100%',
-    paddingHorizontal: theme.SIZES.BASE,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+
   albumThumb: {
     borderRadius: 4,
     marginVertical: 4,

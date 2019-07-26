@@ -61,7 +61,7 @@ class DrawerItem extends React.Component {
             family="font-awesome"
             color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
-      case 'Configuraciones':
+      case 'Configuración':
         return (
           <Icon
             size={16}

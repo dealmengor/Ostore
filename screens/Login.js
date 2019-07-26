@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, icon,AsyncStorage,Alert} from 'react-native';
-import { Block, Button, Text, theme,Input } from 'galio-framework'
-import {  Icon } from '../components/';
+import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, icon, AsyncStorage, Alert } from 'react-native';
+import { Block, Button, Text, theme, Input } from 'galio-framework'
+import { Icon } from '../components/';
 
 
 const { height, width } = Dimensions.get('screen');
@@ -17,7 +17,7 @@ export default class Login extends React.Component {
   };
 
   onChangeText = (key, val) => {
-    this.setState({ [key]: val});
+    this.setState({ [key]: val });
   }
 
   render() {
@@ -37,7 +37,7 @@ export default class Login extends React.Component {
           <Block flex space="around" style={{ zIndex: 2 }}>
             <Block center >
 
-            <Image source={require('../assets/images/login.png')} style={{width: 220, height: 210}}/>
+              <Image source={require('../assets/images/login.png')} style={{ width: 220, height: 210 }} />
               <Input
                 right
                 placeholder="Usuario"
@@ -92,11 +92,11 @@ export default class Login extends React.Component {
           return response.json();
         })
         .then((responseJson) => {
-          if (responseJson.access){
+          if (responseJson.access) {
             AsyncStorage.setItem('userToken', JSON.stringify(responseJson.access));
             AsyncStorage.setItem('userTokenRefresh', JSON.stringify(responseJson.refresh));
             this.props.navigation.navigate('Home');
-          }else{
+          } else {
             Alert.alert('Error de LogIn', 'Las credenciales introducidas, no son las correctas');
           }
         })
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',
 
-    bottom: height/2.5,
+    bottom: height / 2.5,
   },
 
   button: {

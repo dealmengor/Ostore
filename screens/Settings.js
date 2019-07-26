@@ -43,20 +43,20 @@ export default class Settings extends React.Component {
 
   render() {
     const recommended = [
-      { title: "Use FaceID to sign in", id: "face", type: "switch" },
-      { title: "Auto-Lock security", id: "autolock", type: "switch" },
-      { title: "Notifications", id: "Notifications", type: "button" },
+      { title: "Inicio de Sesión con TouchID", id: "face", type: "switch" },
+      { title: "Bloqueo de Cuenta", id: "autolock", type: "switch" },
+      { title: "Notificationes", id: "Notifications", type: "button" },
     ];
 
     const payment = [
-      { title: "Manage Payment Options", id: "Payment", type: "button" },
-      { title: "Manage Gift Cards", id: "gift", type: "button" },
+      { title: "Métodos de Pago", id: "Payment", type: "button" },
+      { title: "Promociones y Tarjetas de Regalo", id: "gift", type: "button" },
     ];
     
     const privacy = [
-      { title: "User Agreement", id: "Agreement", type: "button" },
-      { title: "Privacy", id: "Privacy", type: "button" },
-      { title: "About", id: "About", type: "button" },
+      { title: "Acuerdo de Usuario", id: "Agreement", type: "button" },
+      { title: "Privacidad", id: "Privacy", type: "button" },
+      { title: "Acerca de Nosotros", id: "About", type: "button" },
     ];
 
     return (
@@ -70,20 +70,20 @@ export default class Settings extends React.Component {
           ListHeaderComponent={
             <Block style={styles.title}>
               <Text bold center size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-                Recommended Settings
+                Ajustes de la Aplicación
               </Text>
               <Text center muted size={12}>
-                These are the most important settings
+              Configuración general de Ostore
               </Text>
             </Block>
           }
         />
         <Block style={styles.title}>
           <Text bold center size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-          Payment Settings
+          Pagos
           </Text>
           <Text center muted size={12}>
-          These are also important settings
+          Maneje su Wallet y métodos de pago
           </Text>
         </Block>
         <FlatList
@@ -93,10 +93,10 @@ export default class Settings extends React.Component {
         />
         <Block style={styles.title}>
           <Text bold center size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-          Privacy Settings
+          Privacidad
           </Text>
           <Text center muted size={12}>
-          Third most important settings
+          Información Legal y acuerdos
           </Text>
         </Block>
         <FlatList

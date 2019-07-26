@@ -1,9 +1,7 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView,TouchableOpacity,ActivityIndicator,View } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView,TouchableOpacity,ActivityIndicator,View, ImageBackground } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
-
-import { Icon, Product, Banner } from '../components/';
-
+import { Icon, Product, Images } from '../components/';
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
@@ -98,9 +96,10 @@ export default class Home extends React.Component {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.products}>
           <Block flex>
-           
+
+
           
-         
+
             <Text bold size={16} style={{marginBottom: 8}}>Novedades</Text>
             
             {this.state.dataSource.map(function(object, i) {
@@ -114,7 +113,15 @@ export default class Home extends React.Component {
   }
 
   /*
-   <Text bold size={16} style={{marginBottom: 8}}>Nuevas Tiendas</Text>
+
+<Block flex card shadow style={styles.category}>
+            <ImageBackground
+              source={{ uri: Images.Products['OstoreAd'] }}
+              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
+              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
+            </ImageBackground>
+          </Block>
+          <Text bold size={16} style={{marginBottom: 8}}>Nuevas Tiendas</Text>
 
             <Block flex row>
               <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />

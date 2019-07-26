@@ -16,6 +16,7 @@ import MystoreScreen from '../screens/Mystore';
 import DepartmentsScreen from '../screens/Departments';
 import ProductFormScreen from '../screens/ProductsForm';
 import ProductdetailsScreen from '../screens/Productdetails';
+import StoredetailsScreen from '../screens/Storedetails';
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -120,19 +121,19 @@ const ComponentsStack = createStackNavigator({
     transitionConfig,
   });
 
-/*
+
 const SettingsStack = createStackNavigator({
   Settings: {
     screen: SettingsScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Settings" navigation={navigation} />,
+      header: <Header title="Configuración" navigation={navigation} />,
     })
   },
 }, {
   cardStyle: { backgroundColor: '#EEEEEE', },
   transitionConfig,
 });
-*/
+
 
 //Stack de Navegación Múltiple HOME.JS 
 const HomeStack = createStackNavigator({
@@ -156,6 +157,13 @@ const HomeStack = createStackNavigator({
       headerTransparent: true,
     })
   },
+  Products: {
+    screen: ProductsScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header back black transparent title="Productos" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
   //Detalles de Producto
   Productdetails: {
     screen: ProductdetailsScreen,
@@ -164,10 +172,11 @@ const HomeStack = createStackNavigator({
       headerTransparent: true,
     })
   },
-  Products: {
-    screen: ProductsScreen,
+  //Detalles de Tienda
+  Storedetails: {
+    screen: StoredetailsScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header back black transparent title="Productos" navigation={navigation} />,
+      header: <Header back black transparent title="Detalles de Tienda" navigation={navigation} />,
       headerTransparent: true,
     })
   },
@@ -249,16 +258,16 @@ const AppStack = createDrawerNavigator(
           <Drawer focused={focused} screen="Pro" title="Favoritos" />
         ),
       }),
-    },
+    },*/
     Settings: {
       screen: SettingsStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Settings" title="Configuraciones" />
+          <Drawer focused={focused} screen="Settings" title="Configuración" />
         ),
       }),
-    },*/
-
+    },
+    /*
     Components: {
       screen: ComponentsStack,
       navigationOptions: (navOpt) => ({
@@ -267,7 +276,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-
+    */
     MenuDivider: {
       screen: HomeStack,
       navigationOptions: {
