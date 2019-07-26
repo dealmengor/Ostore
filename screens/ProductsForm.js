@@ -1,13 +1,12 @@
-import React from 'react';
-import { ImageBackground, Image, StyleSheet, StatusBar, Dimensions, Platform } from 'react-native';
+import React, { component } from 'react';
+import { ImageBackground, Image, StyleSheet, StatusBar, Dimensions, Platform, AppRegistry, View, TextInput } from 'react-native';
 import { Block, Button, Text, theme, Input } from 'galio-framework';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Icon } from '../components/';
 
 const { height, width } = Dimensions.get('screen');
 import { Images, materialTheme } from '../constants/';
 import { HeaderHeight } from "../constants/utils";
- 
+
 export default class Pro extends React.Component {
   render() {
     const { navigation } = this.props;
@@ -34,14 +33,11 @@ export default class Pro extends React.Component {
                 style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
                 iconContent={<Icon size={16} color={theme.COLORS.ICON} name="user" family="font-awesome" />}
               />
-              <Input
-                right
-                placeholder="Descripción"
-                onChangeText={val => this.onChangeText('username', val)}
-                placeholderTextColor={materialTheme.COLORS.DEFAULT}
-                style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
-                iconContent={<Icon size={16} color={theme.COLORS.ICON} name="user" family="font-awesome" />}
-              />
+              <TextInput
+        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        onChangeText={(text) => this.setState({text})}
+        value={this.state.text}
+      />
               <Input
                 right
                 placeholder="Precio"
