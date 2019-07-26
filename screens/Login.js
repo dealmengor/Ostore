@@ -55,13 +55,7 @@ export default class Login extends React.Component {
                 secureTextEntry={true}
                 iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
               />
-              <Button
-                shadowless
-                style={styles.button}
-                color={materialTheme.COLORS.INFO}
-                onPress={() => this.signInAsync()}>
-                Iniciar Sesión
-              </Button>
+              
             </Block>
           </Block>
         </Block>
@@ -119,6 +113,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.COLORS.BLACK,
   },
+
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',
