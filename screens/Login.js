@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, icon,AsyncStorage,Alert} from 'react-native';
 import { Block, Button, Text, theme,Input } from 'galio-framework'
-import { Select, Icon, Header, Product, Switch } from '../components/';
+import {  Icon } from '../components/';
 
 
 const { height, width } = Dimensions.get('screen');
@@ -52,25 +52,11 @@ export default class Login extends React.Component {
                 onChangeText={val => this.onChangeText('password', val)}
                 placeholderTextColor={materialTheme.COLORS.DEFAULT}
                 style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+                secureTextEntry={true}
                 iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
               />
-              <Button
-                shadowless
-                style={styles.button}
-                color={materialTheme.COLORS.INFO}
-                onPress={() => this._signInAsync()}>
-                Iniciar Sesión
-              </Button>
+              
             </Block>
-
-            <Button
-              shadowless
-              style={styles.button}
-              color={materialTheme.COLORS.INFO}
-              onPress={() => navigation.navigate('Home')}>
-              Iniciar Sesión
-              </Button>
-
           </Block>
         </Block>
       </Block>
@@ -78,13 +64,13 @@ export default class Login extends React.Component {
     );
   }
 
-  _signInAsync = async () => {
-
+  signInAsync = async () => {
+    console.log("response");
       if (this.isEmpty(this.state.username) || this.isEmpty(this.state.password)){
         Alert.alert('Datos vacios', 'Las credenciales introducidas, no son las correctas');
         return null;
       }else{
-        fetch('http://18.224.109.128:8000/login/', {
+        fetch('http://18.219.213.57:8000/login/', {
           method: 'POST',
           headers: {
               Accept: 'application/json',
@@ -119,19 +105,20 @@ export default class Login extends React.Component {
     return (!str || 0 === str.length);
   }
 
-  //http://18.224.109.128:8000/login/
+
 }
 
-//--- Inicia definicion de estilos
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.COLORS.BLACK,
   },
+
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',
-    bottom: 450,
+
+    bottom: height/2.5,
   },
 
   button: {
@@ -140,7 +127,7 @@ const styles = StyleSheet.create({
     shadowRadius: 0,
     shadowOpacity: 0,
     position: 'relative',
-    bottom: 20
+    bottom: -20
   },
 
   ostore_logo: {
