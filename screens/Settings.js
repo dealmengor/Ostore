@@ -73,7 +73,7 @@ export default class Settings extends React.Component {
                 Ajustes de la Aplicación
               </Text>
               <Text center muted size={12}>
-              Configuración general de OsStore
+              Configuración general de Ostore
               </Text>
             </Block>
           }
