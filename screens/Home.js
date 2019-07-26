@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView,TouchableOpacity,ActivityIndicator,View } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 
 import { Icon, Product } from '../components/';
@@ -8,6 +8,46 @@ const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
 export default class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      dataSource:[],
+      tiendaSource:[]
+     };
+   }
+
+  componentDidMount(){
+    fetch("http://18.219.213.57:8000/api/v1/productos/")
+    .then(response => response.json())
+    .then((responseJson)=> {
+      this.setState({
+       loading: false,
+       dataSource: responseJson.results
+      })
+      
+    })
+    .catch(error=>console.log(error));
+    
+
+    fetch("http://18.219.213.57:8000/api/v1/tienda/")
+    .then(response => response.json())
+    .then((responseJson)=> {
+      
+      console.log(responseJson.results)
+      this.setState({
+        tiendaSource: responseJson.results
+      })
+      
+    })
+    .catch(error=>console.log(error));
+
+    //to catch the errors if any
+  }
+
+  
+
 
 
   renderSearch = () => {
@@ -25,6 +65,7 @@ export default class Home extends React.Component {
       />
     )
   }
+
   
   renderTabs = () => {
     const { navigation } = this.props;  
@@ -49,31 +90,43 @@ export default class Home extends React.Component {
 
   
   renderProducts = () => {
-    return (
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.products}>
-        <Block flex>
-        <Product product={products[4]} full />
-        <Text bold size={16} style={{marginBottom: 8}}>Nuevas Tiendas</Text>
-        <Block flex row>
-            <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[3]} />
+
+    if(this.state.loading){
+      return( 
+        <View style={styles.loader}> 
+          <ActivityIndicator size="large" color="#0c9"/>
+        </View>
+      );
+    }
+      return (
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.products}>
+          <Block flex>
+          <Product product={products[4]} full />
+          <Text bold size={16} style={{marginBottom: 8}}>Nuevas Tiendas</Text>
+
+            <Block flex row>
+              <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
+              <Product product={products[3]} />
+            </Block>
+            <Block flex row>
+              <Product product={products[0]} style={{ marginRight: theme.SIZES.BASE }} />
+              <Product product={products[3]} />
+            </Block>
+            
+            <Text bold size={16} style={{marginBottom: 8}}>Novedades</Text>
+            
+            {this.state.dataSource.map(function(object, i) {
+              return (
+                <TouchableOpacity  key={object.id} style={{backgroundColor: 'transparent'}}>
+                  <Product product={object} horizontal />
+                </TouchableOpacity>
+              );
+            })}
           </Block>
-          <Block flex row>
-            <Product product={products[0]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[3]} />
-          </Block>
-          <Text bold size={16} style={{marginBottom: 8}}>Novedades</Text>
-          <Product product={products[0]} horizontal />
-          <Product product={products[3]} horizontal />
-          <Product product={products[1]} horizontal />
-          <Product product={products[3]} horizontal />
-          <Product product={products[4]} horizontal />
-          <Product product={products[2]} horizontal />
-        </Block>
-      </ScrollView>
-    )
+        </ScrollView>
+      )   
   }
 
   render() {
