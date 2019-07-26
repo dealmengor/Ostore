@@ -14,6 +14,7 @@ class Product extends React.Component {
 
     return (
       <TouchableWithoutFeedback onPress={() => navigation.navigate('Productdetails', { product: product })}>
+
         <Block row={horizontal} card flex style={[styles.product, styles.shadow, style]}>
           
             <Block flex style={[styles.imageContainer, styles.shadow]}>
@@ -27,6 +28,8 @@ class Product extends React.Component {
 
             
         </Block>
+
+
       </TouchableWithoutFeedback>
     );
   }
