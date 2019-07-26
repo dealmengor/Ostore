@@ -54,13 +54,23 @@ export default class Home extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          <Product product={products[0]} horizontal />
-          <Block flex row>
+        <Product product={products[4]} full />
+        <Text bold size={16} style={{marginBottom: 8}}>Nuevas Tiendas</Text>
+        <Block flex row>
             <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[2]} />
+            <Product product={products[3]} />
           </Block>
+          <Block flex row>
+            <Product product={products[0]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[3]} />
+          </Block>
+          <Text bold size={16} style={{marginBottom: 8}}>Novedades</Text>
+          <Product product={products[0]} horizontal />
           <Product product={products[3]} horizontal />
-          <Product product={products[4]} full />
+          <Product product={products[1]} horizontal />
+          <Product product={products[3]} horizontal />
+          <Product product={products[4]} horizontal />
+          <Product product={products[2]} horizontal />
         </Block>
       </ScrollView>
     )

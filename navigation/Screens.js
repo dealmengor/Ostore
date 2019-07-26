@@ -252,7 +252,7 @@ const AppStack = createDrawerNavigator(
       },
     },
     LogOut: {
-      screen: ProScreen,
+      screen: LoginScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="Pro" title="Cerrar Sesión" />
