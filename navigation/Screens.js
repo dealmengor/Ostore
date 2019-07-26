@@ -16,6 +16,7 @@ import MystoreScreen from '../screens/Mystore';
 import DepartmentsScreen from '../screens/Departments';
 import ProductFormScreen from '../screens/ProductsForm';
 import ProductdetailsScreen from '../screens/Productdetails';
+import StoredetailsScreen from '../screens/Storedetails';
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -153,6 +154,13 @@ const HomeStack = createStackNavigator({
       headerTransparent: true,
     })
   },
+  Products: {
+    screen: ProductsScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header back black transparent title="Productos" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
   //Detalles de Producto
   Productdetails: {
     screen: ProductdetailsScreen,
@@ -161,10 +169,11 @@ const HomeStack = createStackNavigator({
       headerTransparent: true,
     })
   },
-  Products: {
-    screen: ProductsScreen,
+  //Detalles de Tienda
+  Storedetails: {
+    screen: StoredetailsScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header back black transparent title="Productos" navigation={navigation} />,
+      header: <Header back black transparent title="Detalles de Tienda" navigation={navigation} />,
       headerTransparent: true,
     })
   },
