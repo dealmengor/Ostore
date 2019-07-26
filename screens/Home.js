@@ -114,14 +114,14 @@ export default class Home extends React.Component {
               <Product product={products[0]} style={{ marginRight: theme.SIZES.BASE }} />
               <Product product={products[3]} />
             </Block>
-            
+
             <Text bold size={16} style={{marginBottom: 8}}>Novedades</Text>
             
             {this.state.dataSource.map(function(object, i) {
               return (
-                <TouchableOpacity  key={object.id} style={{backgroundColor: 'transparent'}}>
-                  <Product product={object} horizontal />
-                </TouchableOpacity>
+                
+                  <Product product={object} horizontal key={object.id}/>
+          
               );
             })}
           </Block>
