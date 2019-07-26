@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, Dimensions, ScrollView,TouchableOpacity,ActivityIndicator,View } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 
-import { Icon, Product } from '../components/';
+import { Icon, Product, Banner } from '../components/';
 
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
+
 
 export default class Home extends React.Component {
 
@@ -19,8 +20,17 @@ export default class Home extends React.Component {
    }
 
   componentDidMount(){
-    fetch("http://18.219.213.57:8000/api/v1/productos/")
-    .then(response => response.json())
+    fetch("http://18.225.36.133:8000/api/v1/productos/")
+    .then(response => {
+      if (response.status == 200){
+        return response.json();
+      }else{
+        this.setState({
+          loading: true,
+          dataSource: null
+         })
+      }
+    })
     .then((responseJson)=> {
       this.setState({
        loading: false,
@@ -29,21 +39,6 @@ export default class Home extends React.Component {
       
     })
     .catch(error=>console.log(error));
-    
-
-    fetch("http://18.219.213.57:8000/api/v1/tienda/")
-    .then(response => response.json())
-    .then((responseJson)=> {
-      
-      console.log(responseJson.results)
-      this.setState({
-        tiendaSource: responseJson.results
-      })
-      
-    })
-    .catch(error=>console.log(error));
-
-    //to catch the errors if any
   }
 
   
@@ -103,18 +98,9 @@ export default class Home extends React.Component {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.products}>
           <Block flex>
-          <Product product={products[4]} full />
-          <Text bold size={16} style={{marginBottom: 8}}>Nuevas Tiendas</Text>
-
-            <Block flex row>
-              <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
-              <Product product={products[3]} />
-            </Block>
-            <Block flex row>
-              <Product product={products[0]} style={{ marginRight: theme.SIZES.BASE }} />
-              <Product product={products[3]} />
-            </Block>
-
+           
+          
+         
             <Text bold size={16} style={{marginBottom: 8}}>Novedades</Text>
             
             {this.state.dataSource.map(function(object, i) {
@@ -128,6 +114,20 @@ export default class Home extends React.Component {
         </ScrollView>
       )   
   }
+
+  /*
+   <Text bold size={16} style={{marginBottom: 8}}>Nuevas Tiendas</Text>
+
+            <Block flex row>
+              <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
+              <Product product={products[3]} />
+            </Block>
+            <Block flex row>
+              <Product product={products[0]} style={{ marginRight: theme.SIZES.BASE }} />
+              <Product product={products[3]} />
+            </Block>
+
+  */
 
   render() {
     return (

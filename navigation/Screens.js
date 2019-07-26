@@ -92,7 +92,7 @@ const MystoreStack = createStackNavigator({
     transitionConfig,
   });
 
-const DepartmentsStack = createStackNavigator({
+/*const DepartmentsStack = createStackNavigator({
   Departments: {
     screen: DepartmentsScreen,
     navigationOptions: ({ navigation }) => ({
@@ -104,6 +104,9 @@ const DepartmentsStack = createStackNavigator({
     cardStyle: { backgroundColor: '#EEEEEE', },
     transitionConfig,
   });
+
+  */
+
 
 const ComponentsStack = createStackNavigator({
   Components: {
@@ -168,6 +171,7 @@ const HomeStack = createStackNavigator({
       headerTransparent: true,
     })
   },
+  
 },
   {
     cardStyle: {
@@ -219,7 +223,7 @@ const AppStack = createDrawerNavigator(
       }),
     },
 
-
+/*
     Departments: {
       screen: DepartmentsStack,
       navigationOptions: (navOpt) => ({
@@ -229,7 +233,7 @@ const AppStack = createDrawerNavigator(
       }),
     },
 
-    /*Insights: {
+    Insights: {
 
       screen: ProScreen,
       navigationOptions: (navOpt) => ({

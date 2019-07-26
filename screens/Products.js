@@ -3,20 +3,40 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  Image,
-  ImageBackground,
+  View,
+  ActivityIndicator,
   Dimensions
 } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
-
 import { materialTheme, products, Images } from '../constants/';
 import { Select, Icon, Header, Product, Switch } from '../components/';
-
 const { width } = Dimensions.get('screen');
-
 const thumbMeasure = (width - 48 - 32) / 3;
 
+
 export default class Products extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      dataSource:[],
+      tiendaSource:[]
+     };
+   }
+
+
+  componentDidMount(){
+    fetch("http://18.225.36.133:8000/api/v1/productos")
+    .then((response) => response.json())
+    .then((responseJson)=> {
+      this.setState({
+       loading: false,
+       dataSource: responseJson.results
+      });
+    })
+    .catch(error=>console.log(error));
+  }
  
   renderInputs = () => {
     return (
@@ -36,40 +56,22 @@ export default class Products extends React.Component {
 
   
   renderCards = () => {
+
     const { navigation } = this.props;
+    var prod = [];
+    for(let i = 0; i < this.state.dataSource.lenght; i=i+2){
+      console.log("hello");
+      prod.push(
+        <Block flex row>
+            <Product product={this.state.dataSource[i-1]} style={{ marginRight: theme.SIZES.BASE }} />
+       </Block>
+      )
+    }
+
     return (
       <Block flex>
         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-        
-          <Block flex row>
-            <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[2]} />
-          </Block>
-
-          <Block flex row>
-            <Product product={products[4]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[0]} />
-          </Block>
-          <Block flex row>
-            <Product product={products[3]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[2]} />
-          </Block>
-          <Block flex row>
-            <Product product={products[4]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[0]} />
-          </Block>
-          <Block flex row>
-            <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[2]} />
-          </Block>
-          <Block flex row>
-            <Product product={products[3]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[0]} />
-          </Block>
-          <Block flex row>
-            <Product product={products[2]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[0]} />
-          </Block>
+          {prod}
           <Product product={products[4]} full />
         </Block>
       </Block>
@@ -78,12 +80,20 @@ export default class Products extends React.Component {
   }
  
   render() {
+
+    if(this.state.loading){
+      return( 
+        <View style={styles.loader}> 
+          <ActivityIndicator size="large" color="#0c9"/>
+        </View>
+      );
+    }
+
     return (
       <Block flex center>
         <ScrollView
           style={styles.components}
           showsVerticalScrollIndicator={false}>
-
           {this.renderInputs()}
           {this.renderCards()}
         </ScrollView>

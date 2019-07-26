@@ -55,7 +55,13 @@ export default class Login extends React.Component {
                 secureTextEntry={true}
                 iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
               />
-              
+              <Button
+                shadowless
+                style={styles.button}
+                color={materialTheme.COLORS.INFO}
+                onPress={() => this.signInAsync()}>
+                Iniciar Sesión
+              </Button>
             </Block>
           </Block>
         </Block>
@@ -65,17 +71,16 @@ export default class Login extends React.Component {
   }
 
   signInAsync = async () => {
-    console.log("response");
       if (this.isEmpty(this.state.username) || this.isEmpty(this.state.password)){
         Alert.alert('Datos vacios', 'Las credenciales introducidas, no son las correctas');
         return null;
       }else{
-        fetch('http://18.219.213.57:8000/login/', {
+        fetch('http://18.225.36.133:8000/login/', {
           method: 'POST',
           headers: {
               Accept: 'application/json',
               'Content-Type': 'application/json',
-            },
+          },
             body: JSON.stringify({
               correo: this.state.username,
               password: this.state.password,
@@ -113,7 +118,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.COLORS.BLACK,
   },
-
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',

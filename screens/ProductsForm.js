@@ -139,7 +139,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE * 2,
     zIndex: 3,
     position: 'absolute',
-    bottom: Platform.OS === 'android' ? theme.SIZES.BASE * 2 : theme.SIZES.BASE * 3,
+    bottom: height/2.5,
+
   },
   button: {
     width: width - theme.SIZES.BASE * 4,
@@ -162,4 +163,5 @@ const styles = StyleSheet.create({
     right: 0,
     height: 66,
   },
+  
 });
