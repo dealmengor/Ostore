@@ -21,11 +21,11 @@ export default class Profile extends React.Component {
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="white" size={28} style={{ paddingBottom: 8 }}>Demo_User</Text>
+                <Text color="white" size={28} style={{ paddingBottom: 8 }}>Demo_Product</Text>
                 <Block row space="between">
                   <Block row>
                     
-                    <Text color="white" size={16} muted style={styles.seller}>Owner</Text>
+                    <Text color="white" size={16} muted style={styles.seller}>MiTienda.es</Text>
                     <Text size={16} color={materialTheme.COLORS.WARNING}>
                     <Icon name="shape-star" family="GalioExtra" size={14} />
                     </Text>
@@ -46,16 +46,16 @@ export default class Profile extends React.Component {
           <ScrollView showsVerticalScrollIndicator={false}>
             <Block row space="between" style={{ padding: theme.SIZES.BASE, }}>
               <Block middle>
-              <Text muted size={12}>14 de Enero</Text>
+              <Text muted size={12}>$9.99</Text>
               <Text bold size={12}>
                       <Icon name="birthday-cake" family="font-awesome" color={theme.COLORS.MUTED} size={16} />
-                      {` `} Cumpleaños</Text>
+                      {` `} Precio</Text>
               </Block>
               <Block middle>
-              <Text muted size={12}>demo.user@gmail.com</Text>
+              <Text muted size={12}>Entrega Gratuita</Text>
               <Text bold size={12}>
                       <Icon name="envelope" family="font-awesome" color={theme.COLORS.MUTED} size={16} />
-                      {` `} Correo</Text>
+                      {` `} Extras</Text>
               </Block>
             </Block>
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
