@@ -19,7 +19,7 @@ const Drawer = (props) => (
       </TouchableWithoutFeedback>
       <Block row>
 
-        <Text size={16} muted style={styles.seller}>{props.profile.type}</Text>
+        <Text size={16} color={theme.COLORS.WHITE} muted style={styles.seller}>{props.profile.type}</Text>
         <Text size={16} color={materialTheme.COLORS.WARNING}>
           {props.profile.rating} <Icon name="shape-star" family="GalioExtra" size={14} />
         </Text>

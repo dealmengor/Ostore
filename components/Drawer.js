@@ -19,7 +19,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="home"
             family="font-awesome"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
         case 'Perfil':
         return (
@@ -27,7 +27,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="circle-10"
             family="GalioExtra"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
       case 'Mi Tienda':
         return (
@@ -35,7 +35,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="shop"
             family="GalioExtra"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
       case 'Departamentos':
         return (
@@ -43,7 +43,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="th-large"
             family="font-awesome"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
       case 'Insights':
         return (
@@ -51,7 +51,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="tachometer"
             family="font-awesome"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
       case 'Favoritos':
         return (
@@ -59,7 +59,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="heart"
             family="font-awesome"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
       case 'Configuraciones':
         return (
@@ -67,7 +67,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="gears"
             family="font-awesome"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
       case 'Components':
         return (
@@ -75,7 +75,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="md-switch"
             family="ionicon"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
         
       case 'Cerrar Sesión':
@@ -84,7 +84,7 @@ class DrawerItem extends React.Component {
             size={16}
             name="ios-log-in"
             family="ionicon"
-            color={focused ? 'white' : materialTheme.COLORS.MUTED} />
+            color={focused ? 'white' : materialTheme.COLORS.PRIMARY} />
         );
         /*
       case 'Sign Up':

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform, TextInput } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -10,29 +10,24 @@ import { HeaderHeight } from "../constants/utils";
 const { width, height } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 
-export default class Profile extends React.Component {
+export default class Mystore extends React.Component {
   render() {
     return (
       <Block flex style={styles.profile}>
         <Block flex>
           <ImageBackground
-            source={{uri: Images.Profile}}
+            source={{uri: Images.StoreLogo}}
             style={styles.profileContainer}
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="white" size={28} style={{ paddingBottom: 8 }}>Demo_User</Text>
                 <Block row space="between">
                   <Block row>
-                    
-                    <Text color="white" size={16} muted style={styles.seller}>Owner</Text>
-                    <Text size={16} color={materialTheme.COLORS.WARNING}>
-                    <Icon name="shape-star" family="GalioExtra" size={14} />
-                    </Text>
+                    <Text color={theme.COLORS.WHITE} size={16} muted style={styles.seller}> Simple Store</Text>
                   </Block>
                   <Block>
-                    <Text color={theme.COLORS.MUTED} size={16}>
-                      <Icon name="map-marker" family="font-awesome" color={theme.COLORS.MUTED} size={16} />
+                      <Text color={theme.COLORS.WHITE} size={16}>
+                      <Icon name="map-marker" family="font-awesome" color={theme.COLORS.WHITE} size={16} />
                       {` `} Panamá, PA
                       </Text>
                   </Block>
@@ -44,23 +39,14 @@ export default class Profile extends React.Component {
         </Block>
         <Block flex style={styles.options}>
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Block row space="between" style={{ padding: theme.SIZES.BASE, }}>
-              <Block middle>
-              <Text muted size={12}>14 de Enero</Text>
-              <Text bold size={12}>
-                      <Icon name="birthday-cake" family="font-awesome" color={theme.COLORS.MUTED} size={16} />
-                      {` `} Cumpleaños</Text>
-              </Block>
-              <Block middle>
-              <Text muted size={12}>demo.user@gmail.com</Text>
-              <Text bold size={12}>
-                      <Icon name="envelope" family="font-awesome" color={theme.COLORS.MUTED} size={16} />
-                      {` `} Correo</Text>
-              </Block>
+
+             <Block>
+            <Text bold size={16} style={{marginBottom: 8}}>Descripción:</Text>
+            <TextInput muted size={12} >Compra y venta de productos en general.</TextInput>
             </Block>
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
-              <Text bold size={16}>Visto Recientemente</Text>
-              <Text size={12} color={materialTheme.COLORS.PRIMARY} onPress={() => this.props.navigation.navigate('Home')}>Mostrar Todos</Text>
+              <Text bold size={16}>Catálago de Productos</Text>
+              <Text bold size={12} color={materialTheme.COLORS.PRIMARY} onPress={() => this.props.navigation.navigate('Home')}>Mostrar Todos</Text>
             </Block>
             <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >
@@ -80,11 +66,7 @@ export default class Profile extends React.Component {
     );
   }
 }
-//Pro Tag
-/*<Block middle style={styles.pro}>
-<Text size={16} color="white">Pro</Text>
-</Block>
-*/
+//<Icon name="shape-star" family="GalioExtra" size={14} />
 const styles = StyleSheet.create({
   profile: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
@@ -108,7 +90,6 @@ const styles = StyleSheet.create({
     paddingVertical: theme.SIZES.BASE * 2,
     zIndex: 2
   },
-  /*
   pro: {
     backgroundColor: materialTheme.COLORS.LABEL,
     paddingHorizontal: 6,
@@ -117,7 +98,6 @@ const styles = StyleSheet.create({
     height: 19,
     width: 38,
   },
-  */
   seller: {
     marginRight: theme.SIZES.BASE / 2,
   },

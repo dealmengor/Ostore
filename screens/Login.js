@@ -1,6 +1,9 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, AsyncStorage,Alert } from 'react-native';
-import { Block, Button, Text, theme,Input } from 'galio-framework';
+
+import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, icon,AsyncStorage,Alert} from 'react-native';
+import { Block, Button, Text, theme,Input } from 'galio-framework'
+import { Select, Icon, Header, Product, Switch } from '../components/';
+
 
 const { height, width } = Dimensions.get('screen');
 
@@ -32,15 +35,24 @@ export default class Login extends React.Component {
         <Block flex space="between" style={styles.padded}>
           <Block flex space="around" style={{ zIndex: 2 }}>
             <Block center >
-            <Image source={require('../assets/images/icon.png')} style={{width: 250, height: 250}}/>
-              <Input placeholder="Email" 
-              onChangeText={val => this.onChangeText('username', val)}
+
+            <Image source={require('../assets/images/login.png')} style={{width: 220, height: 210}}/>
+              <Input
+                right
+                placeholder="Usuario"
+                onChangeText={val => this.onChangeText('username', val)}
+                placeholderTextColor={materialTheme.COLORS.DEFAULT}
+                style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+                iconContent={<Icon size={16} color={theme.COLORS.ICON} name="user" family="font-awesome" />}
               />
-              <Input placeholder="password" 
-              onChangeText={val => this.onChangeText('password', val)}
-              secureTextEntry={true}
+              <Input
+                right
+                placeholder="Contraseña"
+                onChangeText={val => this.onChangeText('password', val)}
+                placeholderTextColor={materialTheme.COLORS.DEFAULT}
+                style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+                iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
               />
-              
               <Button
                 shadowless
                 style={styles.button}
