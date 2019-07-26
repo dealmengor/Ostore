@@ -9,19 +9,19 @@ import materialTheme from '../constants/Theme';
 const { height, width } = Dimensions.get('window');
 const iPhoneX = () => Platform.OS === 'ios' && (height === 812 || width === 812 || height === 896 || width === 896);
 
-/*
-const ChatButton = ({isWhite, style, navigation}) => (
-  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Pro')}>
+
+const AddNew = ({isWhite, style, navigation}) => (
+  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('ProductsForm')}>
     <Icon
-      family="GalioExtra"
+      family="feather"
       size={16}
-      name="chat-33"
+      name="plus"
       color={theme.COLORS[isWhite ? 'WHITE' : 'ICON']}
     />
     <Block middle style={styles.notify} />
   </TouchableOpacity>
 );
-*/
+
 
 const Departments = ({isWhite, style, navigation}) => (
   <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Departments')}>
@@ -60,7 +60,7 @@ class Header extends React.Component {
 
     if (title === 'Title') {
       return [
-        //<ChatButton key='chat-title' navigation={navigation} isWhite={white} />,
+        //<AddNew key='chat-title' navigation={navigation} isWhite={white} />,
         <Departments key='basket-title' navigation={navigation} isWhite={white} />
       ]
     }
@@ -69,31 +69,33 @@ class Header extends React.Component {
     switch (routeName) {
       case 'Home':
         return ([
-          //<ChatButton key='chat-home' navigation={navigation} isWhite={white} />,
+          //<AddNew key='chat-home' navigation={navigation} isWhite={white} />,
           <Departments key='basket-home' navigation={navigation} isWhite={white} />
         ]);
+        case 'MyStore':
+        return ([
+          <AddNew key='chat-mystore' navigation={navigation} isWhite={white} />,
+          //<Departments key='basket-categories' navigation={navigation} isWhite={white} />
+        ]);
+        /*
       case 'Deals':
         return ([
-          //<ChatButton key='chat-categories' navigation={navigation} />,
+          //<AddNew key='chat-categories' navigation={navigation} />,
           <Departments key='basket-categories' navigation={navigation} />
         ]);
-      /*case 'Mi Tienda':
-        return ([
-          //<ChatButton key='chat-categories' navigation={navigation} isWhite={white} />,
-          <Departments key='basket-categories' navigation={navigation} isWhite={white} />
-        ]);
-      */
+      
+      
       case 'Category':
         return ([
-          //<ChatButton key='chat-deals' navigation={navigation} isWhite={white} />,
+          //<AddNew key='chat-deals' navigation={navigation} isWhite={white} />,
           <Departments key='basket-deals' navigation={navigation} isWhite={white} />
         ]);
-      /*case 'Profile':
+      case 'Profile':
         return ([
-          //<ChatButton key='chat-profile' navigation={navigation} isWhite={white} />,
+          //<AddNew key='chat-profile' navigation={navigation} isWhite={white} />,
           <Departments key='basket-deals' navigation={navigation} isWhite={white} />
         ]);
-        */
+        
       case 'Product':
         return ([
           <SearchButton key='search-product' navigation={navigation} isWhite={white} />,
@@ -101,14 +103,15 @@ class Header extends React.Component {
         ]);
       case 'Search':
         return ([
-          //<ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
+          //<AddNew key='chat-search' navigation={navigation} isWhite={white} />,
           <Departments key='basket-search' navigation={navigation} isWhite={white} />
         ]);
       case 'Settings':
         return ([
-         // <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
+         // <AddNew key='chat-search' navigation={navigation} isWhite={white} />,
           <Departments key='basket-search' navigation={navigation} isWhite={white} />
         ]);
+        */
       default:
         break;
     }
@@ -165,7 +168,7 @@ class Header extends React.Component {
   render() {
     const { back, title, white, transparent, navigation } = this.props;
     const { routeName } = navigation.state;
-    const noShadow = ["Search", "Categories", "Deals", "Pro", "Profile"].includes(routeName);
+    const noShadow = ["Search", "Categories", "Deals", "Pro", "Profile", 'ProductsForm'].includes(routeName);
     const headerStyles = [
       !noShadow ? styles.shadow : null,
       transparent ? { backgroundColor: 'rgba(0,0,0,0)' } : null,
