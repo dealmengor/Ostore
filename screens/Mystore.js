@@ -59,6 +59,16 @@ export default class Mystore extends React.Component {
                   />
                 ))}
               </Block>
+              <Block row space="between" style={{ flexWrap: 'wrap' }} >
+                {Images.Viewed2.map((img, imgIndex) => (
+                  <Image
+                    source={{ uri: img }}
+                    key={`viewed2-${img}`}  
+                    resizeMode="cover"
+                    style={styles.thumb}
+                  />
+                ))}
+              </Block>
             </Block>
           </ScrollView>
         </Block>

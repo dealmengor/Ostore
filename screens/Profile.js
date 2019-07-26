@@ -73,6 +73,16 @@ export default class Profile extends React.Component {
                   />
                 ))}
               </Block>
+              <Block row space="between" style={{ flexWrap: 'wrap' }} >
+                {Images.Viewed2.map((img, imgIndex) => (
+                  <Image
+                    source={{ uri: img }}
+                    key={`viewed2-${img}`}  
+                    resizeMode="cover"
+                    style={styles.thumb}
+                  />
+                ))}
+              </Block>
             </Block>
           </ScrollView>
         </Block>
@@ -80,11 +90,7 @@ export default class Profile extends React.Component {
     );
   }
 }
-//Pro Tag
-/*<Block middle style={styles.pro}>
-<Text size={16} color="white">Pro</Text>
-</Block>
-*/
+
 const styles = StyleSheet.create({
   profile: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
@@ -108,16 +114,7 @@ const styles = StyleSheet.create({
     paddingVertical: theme.SIZES.BASE * 2,
     zIndex: 2
   },
-  /*
-  pro: {
-    backgroundColor: materialTheme.COLORS.LABEL,
-    paddingHorizontal: 6,
-    marginRight: theme.SIZES.BASE / 2,
-    borderRadius: 4,
-    height: 19,
-    width: 38,
-  },
-  */
+
   seller: {
     marginRight: theme.SIZES.BASE / 2,
   },
