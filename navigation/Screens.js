@@ -152,7 +152,7 @@ const HomeStack = createStackNavigator({
       headerTransparent: true,
     })
   },
-  /*
+  
   Products: {
     screen: ProductsScreen,
     navigationOptions: ({ navigation }) => ({
