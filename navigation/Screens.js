@@ -82,7 +82,7 @@ const MystoreStack = createStackNavigator({
   ProductsForm: {
     screen: ProductFormScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header back black transparent title="Formulario" navigation={navigation} />,
+      header: <Header back white transparent title="Formulario" navigation={navigation} />,
       headerTransparent: true,
     })
   },
