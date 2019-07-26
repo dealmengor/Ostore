@@ -3,8 +3,6 @@ import React from 'react';
 import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, icon,AsyncStorage,Alert} from 'react-native';
 import { Block, Button, Text, theme,Input } from 'galio-framework'
 import { Select, Icon, Header, Product, Switch } from '../components/';
-
-
 const { height, width } = Dimensions.get('screen');
 
 import materialTheme from '../constants/Theme';
@@ -55,13 +53,7 @@ export default class Login extends React.Component {
                 secureTextEntry={true}
                 iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
               />
-              <Button
-                shadowless
-                style={styles.button}
-                color={materialTheme.COLORS.INFO}
-                onPress={() => this._signInAsync()}>
-                Iniciar Sesión
-              </Button>
+              
             </Block>
 
             <Button
@@ -129,11 +121,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.COLORS.BLACK,
   },
+
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',
-
-    bottom: height/2 
+    bottom: height/2.5, 
   },
 
   button: {
@@ -142,7 +134,7 @@ const styles = StyleSheet.create({
     shadowRadius: 0,
     shadowOpacity: 0,
     position: 'relative',
-    bottom: 20
+    bottom: -40
   },
 
   ostore_logo: {
