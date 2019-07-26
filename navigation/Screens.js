@@ -118,19 +118,19 @@ const ComponentsStack = createStackNavigator({
     transitionConfig,
   });
 
-/*
+
 const SettingsStack = createStackNavigator({
   Settings: {
     screen: SettingsScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Settings" navigation={navigation} />,
+      header: <Header title="Configuración" navigation={navigation} />,
     })
   },
 }, {
   cardStyle: { backgroundColor: '#EEEEEE', },
   transitionConfig,
 });
-*/
+
 
 //Stack de Navegación Múltiple HOME.JS 
 const HomeStack = createStackNavigator({
@@ -254,15 +254,15 @@ const AppStack = createDrawerNavigator(
           <Drawer focused={focused} screen="Pro" title="Favoritos" />
         ),
       }),
-    },
+    },*/
     Settings: {
       screen: SettingsStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Settings" title="Configuraciones" />
+          <Drawer focused={focused} screen="Settings" title="Configuración" />
         ),
       }),
-    },*/
+    },
 
     Components: {
       screen: ComponentsStack,
