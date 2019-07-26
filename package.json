@@ -21,7 +21,11 @@
     "galio-framework": "^0.5.3",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+<<<<<<< HEAD
     "react-native-image-picker": "^1.0.1",
+=======
+    "react-native-fontawesome": "^6.0.1",
+>>>>>>> 9f6f4075b41e7f0fa36acfeee8fcd00adf4bdd3f
     "react-native-modal-dropdown": "^0.6.2",
     "react-navigation": "^3.11.0"
   },

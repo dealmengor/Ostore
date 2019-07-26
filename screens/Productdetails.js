@@ -48,13 +48,13 @@ export default class Profile extends React.Component {
               <Block middle>
               <Text muted size={12}>$9.99</Text>
               <Text bold size={12}>
-                      <Icon name="birthday-cake" family="font-awesome" color={theme.COLORS.MUTED} size={16} />
+                      <Icon name="money" family="font-awesome" color={theme.COLORS.MUTED} size={16} />
                       {` `} Precio</Text>
               </Block>
               <Block middle>
               <Text muted size={12}>Entrega Gratuita</Text>
               <Text bold size={12}>
-                      <Icon name="envelope" family="font-awesome" color={theme.COLORS.MUTED} size={16} />
+                      <Icon name="info" family="feather" color={theme.COLORS.MUTED} size={16} />
                       {` `} Extras</Text>
               </Block>
             </Block>
@@ -68,6 +68,16 @@ export default class Profile extends React.Component {
                   <Image
                     source={{ uri: img }}
                     key={`viewed-${img}`}  
+                    resizeMode="cover"
+                    style={styles.thumb}
+                  />
+                ))}
+              </Block>
+              <Block row space="between" style={{ flexWrap: 'wrap' }} >
+                {Images.Viewed2.map((img, imgIndex) => (
+                  <Image
+                    source={{ uri: img }}
+                    key={`viewed2-${img}`}  
                     resizeMode="cover"
                     style={styles.thumb}
                   />
