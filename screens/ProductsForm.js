@@ -1,7 +1,8 @@
 import React from 'react';
 import { ImageBackground, Image, StyleSheet, StatusBar, Dimensions, Platform } from 'react-native';
-import { Block, Button, Text, theme } from 'galio-framework';
+import { Block, Button, Text, theme,Input } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
+import {Icon} from '../components/';
 
 const { height, width } = Dimensions.get('screen');
 import { Images, materialTheme } from '../constants/';
@@ -10,13 +11,79 @@ import { HeaderHeight } from "../constants/utils";
 export default class Pro extends React.Component {
   render() {
     const { navigation } = this.props;
-
     return (
+      <Block flex style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <Block flex center>
+          <ImageBackground
+            source={{ uri: Images.ImgLogin }}
+            style={{ height: height, width: width, zIndex: 1 }}
+          />
+
+        </Block>
+        <Block flex space="between" style={styles.padded}>
+          <Block flex space="around" style={{ zIndex: 2 }}>
+            <Block center >
+
+            <Text p color="white">Registre los datos de su Producto</Text>
+              <Input
+                right
+                placeholder="Título"
+                onChangeText={val => this.onChangeText('username', val)}
+                placeholderTextColor={materialTheme.COLORS.DEFAULT}
+                style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+                iconContent={<Icon size={16} color={theme.COLORS.ICON} name="user" family="font-awesome" />}
+              />
+               <Input
+                right
+                placeholder="Descripción"
+                onChangeText={val => this.onChangeText('username', val)}
+                placeholderTextColor={materialTheme.COLORS.DEFAULT}
+                style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+                iconContent={<Icon size={16} color={theme.COLORS.ICON} name="user" family="font-awesome" />}
+              />
+               <Input
+                right
+                placeholder="Precio"
+                onChangeText={val => this.onChangeText('username', val)}
+                placeholderTextColor={materialTheme.COLORS.DEFAULT}
+                style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+                iconContent={<Icon size={16} color={theme.COLORS.ICON} name="user" family="font-awesome" />}
+              />
+              <Input
+                right
+                placeholder="Imagen"
+                onChangeText={val => this.onChangeText('password', val)}
+                placeholderTextColor={materialTheme.COLORS.DEFAULT}
+                style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+                iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
+              />
+         
+            </Block>
+
+            <Button
+              shadowless
+              style={styles.button}
+              color={materialTheme.COLORS.INFO}
+              onPress={() => navigation.navigate('Products')}>
+              Iniciar Sesión
+              </Button>
+
+          </Block>
+        </Block>
+      </Block>
+
+    );
+    
+  }
+}
+/*
+return (
       <Block flex style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Block flex>
           <ImageBackground
-            source={{ uri: Images.Pro }}
+            source={{ uri: Images.ImgLogin }}
             style={{ height: height / 1.8, width, zIndex: 1 }}
           >
           <LinearGradient
@@ -54,17 +121,15 @@ export default class Pro extends React.Component {
                 shadowless
                 style={styles.button}
                 color={materialTheme.COLORS.BUTTON_COLOR}
-                onPress={() => navigation.navigate('Home')}>
-                GET PRO VERSION
+                onPress={() => navigation.navigate('MyStore')}>
+                Agregar Producto
               </Button>
             </Block>
           </Block>
         </Block>
       </Block>
     );
-  }
-}
-
+*/
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.COLORS.BLACK,
