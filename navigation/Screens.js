@@ -239,7 +239,6 @@ const AppStack = createDrawerNavigator(
     },
 
     /*Insights: {
-
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -263,7 +262,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-
+    /*
     Components: {
       screen: ComponentsStack,
       navigationOptions: (navOpt) => ({
@@ -272,7 +271,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-
+    */
     MenuDivider: {
       screen: HomeStack,
       navigationOptions: {
