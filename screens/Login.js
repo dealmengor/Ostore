@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, icon,AsyncStorage,Alert} from 'react-native';
-import { Block, Button, Text, theme,Input } from 'galio-framework'
-import {  Icon } from '../components/';
+import { ImageBackground, StyleSheet, StatusBar, Dimensions, Image, icon, AsyncStorage, Alert } from 'react-native';
+import { Block, Button, Text, theme, Input } from 'galio-framework'
+import { Icon } from '../components/';
 
 
 const { height, width } = Dimensions.get('screen');
@@ -17,7 +17,7 @@ export default class Login extends React.Component {
   };
 
   onChangeText = (key, val) => {
-    this.setState({ [key]: val});
+    this.setState({ [key]: val });
   }
 
   render() {
@@ -37,7 +37,7 @@ export default class Login extends React.Component {
           <Block flex space="around" style={{ zIndex: 2 }}>
             <Block center >
 
-            <Image source={require('../assets/images/login.png')} style={{width: 220, height: 210}}/>
+              <Image source={require('../assets/images/login.png')} style={{ width: 220, height: 210 }} />
               <Input
                 right
                 placeholder="Usuario"
@@ -55,7 +55,13 @@ export default class Login extends React.Component {
                 secureTextEntry={true}
                 iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
               />
-              
+              <Button
+                shadowless
+                style={styles.button}
+                color={materialTheme.COLORS.INFO}
+                onPress={() => navigation.navigate('Home')}>
+                Iniciar Sesión
+              </Button>
             </Block>
           </Block>
         </Block>
@@ -66,32 +72,32 @@ export default class Login extends React.Component {
 
   signInAsync = async () => {
     console.log("response");
-      if (this.isEmpty(this.state.username) || this.isEmpty(this.state.password)){
-        Alert.alert('Datos vacios', 'Las credenciales introducidas, no son las correctas');
-        return null;
-      }else{
-        fetch('http://18.219.213.57:8000/login/', {
-          method: 'POST',
-          headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              correo: this.state.username,
-              password: this.state.password,
-            }),
-        })
+    if (this.isEmpty(this.state.username) || this.isEmpty(this.state.password)) {
+      Alert.alert('Datos vacios', 'Las credenciales introducidas, no son las correctas');
+      return null;
+    } else {
+      fetch('http://18.219.213.57:8000/login/', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          correo: this.state.username,
+          password: this.state.password,
+        }),
+      })
         .then((response) => {
 
           console.log(response);
           return response.json();
         })
         .then((responseJson) => {
-          if (responseJson.access){
+          if (responseJson.access) {
             AsyncStorage.setItem('userToken', JSON.stringify(responseJson.access));
             AsyncStorage.setItem('userTokenRefresh', JSON.stringify(responseJson.refresh));
             this.props.navigation.navigate('Home');
-          }else{
+          } else {
             Alert.alert('Error de LogIn', 'Las credenciales introducidas, no son las correctas');
           }
         })
@@ -118,7 +124,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',
 
-    bottom: height/2.5,
+    bottom: height / 2.5,
   },
 
   button: {
