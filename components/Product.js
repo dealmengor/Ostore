@@ -13,19 +13,18 @@ class Product extends React.Component {
     const imageStyles = [styles.image, full ? styles.fullImage : styles.horizontalImage, imageStyle];
 
     return (
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('Productdetails', { product: product })}>
       <Block row={horizontal} card flex style={[styles.product, styles.shadow, style]}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro', { product: product })}>
           <Block flex style={[styles.imageContainer, styles.shadow]}>
             <Image source={{ uri: product.image }} style={imageStyles} />
           </Block>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro', { product: product })}>
           <Block flex space="between" style={styles.productDescription}>
             <Text size={14} style={styles.productTitle}>{product.title}</Text>
             <Text size={12} muted={!priceColor} color={priceColor}>${product.price}</Text>
           </Block>
-        </TouchableWithoutFeedback>
+       
       </Block>
+      </TouchableWithoutFeedback>
     );
   }
 }
