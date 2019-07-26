@@ -6,6 +6,7 @@ const Products = {
   'Accessories': 'https://source.unsplash.com//l1MCA0VyNrk/840x840',
   'Fitness': 'https://asimplecompany.000webhostapp.com/WEBSERVER/Ostore/Fitness_Girl.png',
   'Technology': 'https://asimplecompany.000webhostapp.com/WEBSERVER/Ostore/Tech.png',
+  'OstoreAd' : 'https://asimplecompany.000webhostapp.com/WEBSERVER/Ostore/Ostore_Ad.png',
 };
 
 const Profile = 'https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80';

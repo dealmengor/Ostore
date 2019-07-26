@@ -2,19 +2,20 @@ import React from 'react';
 import {
   ScrollView,
   StyleSheet,
+  ImageBackground,
   Dimensions
 } from 'react-native';
 import { Block, Input, theme } from 'galio-framework';
 
-import { materialTheme, products} from '../constants/';
-import { Icon, Product} from '../components/';
+import { materialTheme, products, Images } from '../constants/';
+import { Icon, Product } from '../components/';
 
 const { width } = Dimensions.get('screen');
 
 const thumbMeasure = (width - 48 - 32) / 3;
 
 export default class Products extends React.Component {
- 
+
   renderInputs = () => {
     return (
 
@@ -31,13 +32,13 @@ export default class Products extends React.Component {
     )
   }
 
-  
+
   renderCards = () => {
-    
+
     return (
       <Block flex>
         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-        
+
           <Block flex row>
             <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
             <Product product={products[2]} />
@@ -67,13 +68,19 @@ export default class Products extends React.Component {
             <Product product={products[2]} style={{ marginRight: theme.SIZES.BASE }} />
             <Product product={products[0]} />
           </Block>
-          <Product product={products[4]} full />
+          <Block flex card shadow style={styles.category}>
+            <ImageBackground
+              source={{ uri: Images.Products['OstoreAd'] }}
+              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
+              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
+            </ImageBackground>
+          </Block>
         </Block>
       </Block>
 
     )
   }
- 
+
   render() {
     return (
       <Block flex center>

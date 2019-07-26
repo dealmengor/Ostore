@@ -2,64 +2,74 @@ import React from 'react';
 import {
   ScrollView,
   StyleSheet,
+  ImageBackground,
   Dimensions
 } from 'react-native';
-import { Block, Input, theme } from 'galio-framework';
+import { Block, Input, theme, Card} from 'galio-framework';
 
-import { materialTheme, products } from '../constants/';
-import { Icon, Product, } from '../components/';
+import { materialTheme, Products, Images } from '../constants/';
+import { Icon, Product} from '../components/';
 
 const { width } = Dimensions.get('screen');
 
 const thumbMeasure = (width - 48 - 32) / 3;
 
 export default class Stores extends React.Component {
-  
+
   renderInputs = () => {
     return (
-      
-        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-          <Input
-            right
-            placeholder="Descubre..."
-            placeholderTextColor={materialTheme.COLORS.DEFAULT}
-            style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
-            iconContent={<Icon size={16} color={theme.COLORS.ICON} name="store" family="material" />}
-          />
-        </Block>
-      
+
+      <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+        <Input
+          right
+          placeholder="Descubre..."
+          placeholderTextColor={materialTheme.COLORS.DEFAULT}
+          style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
+          iconContent={<Icon size={16} color={theme.COLORS.ICON} name="store" family="material" />}
+        />
+      </Block>
+
     )
   }
- 
+
   renderCards = () => {
     return (
 
-        <Block flex>
-          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Product product={products[0]} horizontal />
-            <Product product={products[1]} horizontal />
-            <Product product={products[3]} horizontal />
-            <Product product={products[2]} horizontal />
-            <Product product={products[2]} horizontal />
-            <Product product={products[4]} horizontal />
-            <Product product={products[0]} horizontal />
-            <Product product={products[3]} horizontal />
-            <Product product={products[4]} full />
-          </Block>
+      <Block flex>
+  
+        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+        <Block flex card shadow style={styles.category}>
+              <ImageBackground
+                source={{ uri: Images.Products['OstoreAd'] }}
+                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
+                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
+              </ImageBackground>
+            </Block>
+          <Card
+            neutral
+            fullBackgroundImage
+            image="https://images.unsplash.com/photo-1536567893079-f54abdc73dc2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e6a56a131b11a6366446c42381192329&auto=format&fit=crop&w=1350&q=80"
+            authorImageSrc="http://i.pravatar.cc/100"
+            authorTitle="Offset"
+            authorSubTitle="420 minutes ago"
+            title="Ejemplo"
+          />
         </Block>
-      
+       
+      </Block>
+
     )
   }
 
-render() {
+  render() {
     return (
       <Block flex center>
         <ScrollView
           style={styles.components}
           showsVerticalScrollIndicator={false}>
 
-            {this.renderInputs()}
-            {this.renderCards()} 
+          {this.renderInputs()}
+          {this.renderCards()}
         </ScrollView>
       </Block>
     );
