@@ -54,14 +54,15 @@ export default class ProductsForm extends React.Component {
                   placeholder="Título"
                   placeholderTextColor={materialTheme.COLORS.DEFAULT}
                   style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
-                  iconContent={<Icon size={16} color={theme.COLORS.ICON} name="user" family="font-awesome" />}
+                  iconContent={<Icon size={16} color={theme.COLORS.ICON} name="type" family="feather" />}
                 />
                 <Input
                   right
                   placeholder="Precio"
                   placeholderTextColor={materialTheme.COLORS.DEFAULT}
                   style={{ borderRadius: 3, borderColor: materialTheme.COLORS.INPUT }}
-                  iconContent={<Icon size={16} color={theme.COLORS.ICON} name="user" family="font-awesome" />}
+                  keyboardType={'numeric'}
+                  iconContent={<Icon size={16} color={theme.COLORS.ICON} name="money" family="font-awesome" />}
                 />
                 <Input
                   right
@@ -69,7 +70,7 @@ export default class ProductsForm extends React.Component {
                   placeholder="Descripción"
                   placeholderTextColor={materialTheme.COLORS.DEFAULT}
                   style={{ height: 150, borderRadius: 3, borderColor: materialTheme.COLORS.INFO }}
-                  iconContent={<Icon size={16} color={theme.COLORS.ICON} name="key" family="font-awesome" />}
+                  iconContent={<Icon size={16} color={theme.COLORS.ICON} name="align-justify" family="font-awesome" />}
                 />
               </Block>
               <Block>
@@ -151,5 +152,29 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 66,
+  },
+    input: {
+    borderBottomWidth: 1,
+  },
+  inputDefault: {
+    borderBottomColor: materialTheme.COLORS.PLACEHOLDER,
+  },
+  inputTheme: {
+    borderBottomColor: materialTheme.COLORS.PRIMARY,
+  },
+  inputTheme: {
+    borderBottomColor: materialTheme.COLORS.PRIMARY,
+  },
+  inputInfo: {
+    borderBottomColor: materialTheme.COLORS.INFO,
+  },
+  inputSuccess: {
+    borderBottomColor: materialTheme.COLORS.SUCCESS,
+  },
+  inputWarning: {
+    borderBottomColor: materialTheme.COLORS.WARNING,
+  },
+  inputDanger: {
+    borderBottomColor: materialTheme.COLORS.ERROR,
   },
 });
