@@ -14,7 +14,8 @@ import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
 import MystoreScreen from '../screens/Mystore';
 import DepartmentsScreen from '../screens/Departments';
-import ProductFormScreen from '../screens/ProductsForm'
+import ProductFormScreen from '../screens/ProductsForm';
+import ProductdetailsScreen from '../screens/Productdetails';
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -152,7 +153,14 @@ const HomeStack = createStackNavigator({
       headerTransparent: true,
     })
   },
-  
+  //Detalles de Producto
+  Productdetails: {
+    screen: ProductdetailsScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header back white transparent title="Detalles de Producto" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
   Products: {
     screen: ProductsScreen,
     navigationOptions: ({ navigation }) => ({
@@ -167,7 +175,7 @@ const HomeStack = createStackNavigator({
     },
     transitionConfig,
   });
-
+  
 //Interactividad sin entrada en el menú de navegación
 const AppStack = createDrawerNavigator(
   {
