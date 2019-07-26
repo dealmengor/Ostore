@@ -7,9 +7,13 @@ import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
 import OnboardingScreen from '../screens/Onboarding';
 import LoginScreen from '../screens/Login';
+import ProductsScreen from '../screens/Products';
+import StoresScreen from '../screens/Stores';
 import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
+import MystoreScreen from '../screens/Mystore';
+import DepartmentsScreen from '../screens/Departments';
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -51,12 +55,13 @@ const transitionConfig = (transitionProps, prevTransitionProps) => ({
 })
 
 
+//Stacks Principales
 
 const ProfileStack = createStackNavigator({
   Profile: {
     screen: ProfileScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header white transparent title="Profile" navigation={navigation} />,
+      header: <Header white transparent title="Perfil" navigation={navigation} />,
       headerTransparent: true,
     })
   },
@@ -65,11 +70,25 @@ const ProfileStack = createStackNavigator({
   transitionConfig,
 });
 
-const SettingsStack = createStackNavigator({
-  Settings: {
-    screen: SettingsScreen,
+const MystoreStack = createStackNavigator({
+  MyStore: {
+    screen: MystoreScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Settings" navigation={navigation} />,
+      header: <Header black transparent title="Mi Tienda" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
+}, {
+  cardStyle: { backgroundColor: '#EEEEEE', },
+  transitionConfig,
+});
+
+const DepartmentsStack = createStackNavigator({
+  Departments: {
+    screen: DepartmentsScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header black transparent title="Departamentos" navigation={navigation} />,
+      headerTransparent: true,
     })
   },
 }, {
@@ -89,17 +108,46 @@ const ComponentsStack = createStackNavigator({
   transitionConfig,
 });
 
+/*
+const SettingsStack = createStackNavigator({
+  Settings: {
+    screen: SettingsScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="Settings" navigation={navigation} />,
+    })
+  },
+}, {
+  cardStyle: { backgroundColor: '#EEEEEE', },
+  transitionConfig,
+});
+*/
+
+//Stack de Navegación Múltiple HOME.JS 
 const HomeStack = createStackNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header search tabs title="Home" navigation={navigation} />,
+      header: <Header tabs title="Home" navigation={navigation} />,
     })
   },
-  Pro: {
-    screen: ProScreen,
+  Departments: {
+    screen: DepartmentsScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header back white transparent title="Pro" navigation={navigation} />,
+      header: <Header back black transparent title="Departamentos" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
+  Stores: {
+    screen: StoresScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header back black transparent title="Tiendas" navigation={navigation} />,
+      headerTransparent: true,
+    })
+  },
+  Products: {
+    screen: ProductsScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header back black transparent title="Productos" navigation={navigation} />,
       headerTransparent: true,
     })
   },
@@ -111,6 +159,7 @@ const HomeStack = createStackNavigator({
   transitionConfig,
 });
 
+//Interactividad sin entrada en el menú de navegación
 const AppStack = createDrawerNavigator(
   {
     Onboarding: {
@@ -119,12 +168,15 @@ const AppStack = createDrawerNavigator(
         drawerLabel: () => {},
       },
     },
+  
     Login: {
       screen: LoginScreen,
       navigationOptions: {
         drawerLabel: () => {},
       },
     },
+
+  //Entradas asociadas al menú de navegación las cuales pueden estar asociada a un stack o un screen
     Home: {
       screen: HomeStack,
       navigationOptions: {
@@ -142,22 +194,26 @@ const AppStack = createDrawerNavigator(
       }),
     },
     MyStore: {
-      screen: HomeStack,
-      navigationOptions: {
+      screen: MystoreStack,
+      navigationOptions: (navOpt) =>({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Home" title="Mi Tienda" />
+          <Drawer focused={focused} screen="Mystore" title="Mi Tienda" />
         )
-      }
+      }),
     },
+
+    
     Departments: {
-      screen: ProScreen,
+      screen: DepartmentsStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Departamentos" />
+          <Drawer focused={focused} screen="Departments" title="Departamentos" />
         ),
       }),
     },
+
     /*Insights: {
+
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -165,7 +221,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    /*Favorites: {
+    Favorites: {
       screen: ProScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
@@ -181,6 +237,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },*/
+    
     Components: {
       screen: ComponentsStack,
       navigationOptions: (navOpt) => ({
@@ -189,6 +246,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
+    
     MenuDivider: {
       screen: HomeStack,
       navigationOptions: {
@@ -196,7 +254,7 @@ const AppStack = createDrawerNavigator(
       },
     },
     LogOut: {
-      screen: ProScreen,
+      screen: LoginScreen,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="Pro" title="Cerrar Sesión" />

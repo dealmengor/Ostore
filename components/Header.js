@@ -9,6 +9,7 @@ import materialTheme from '../constants/Theme';
 const { height, width } = Dimensions.get('window');
 const iPhoneX = () => Platform.OS === 'ios' && (height === 812 || width === 812 || height === 896 || width === 896);
 
+/*
 const ChatButton = ({isWhite, style, navigation}) => (
   <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Pro')}>
     <Icon
@@ -20,13 +21,16 @@ const ChatButton = ({isWhite, style, navigation}) => (
     <Block middle style={styles.notify} />
   </TouchableOpacity>
 );
+*/
 
-const BasketButton = ({isWhite, style, navigation}) => (
-  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Pro')}>
+const Departments = ({isWhite, style, navigation}) => (
+  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Departments')}>
     <Icon
-      family="GalioExtra"
+      family="font-awesome"
+      //family="GalioExtra" 
       size={16}
-      name="basket-simple"
+      name="th-large"
+      //name="basket-simple" 
       color={theme.COLORS[isWhite ? 'WHITE' : 'ICON']}
     />
     <Block middle style={styles.notify} />
@@ -56,51 +60,54 @@ class Header extends React.Component {
 
     if (title === 'Title') {
       return [
-        <ChatButton key='chat-title' navigation={navigation} isWhite={white} />,
-        <BasketButton key='basket-title' navigation={navigation} isWhite={white} />
+        //<ChatButton key='chat-title' navigation={navigation} isWhite={white} />,
+        <Departments key='basket-title' navigation={navigation} isWhite={white} />
       ]
     }
 
+    //Vistas donde se muestran los botones del Header
     switch (routeName) {
       case 'Home':
         return ([
-          <ChatButton key='chat-home' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-home' navigation={navigation} isWhite={white} />
+          //<ChatButton key='chat-home' navigation={navigation} isWhite={white} />,
+          <Departments key='basket-home' navigation={navigation} isWhite={white} />
         ]);
       case 'Deals':
         return ([
-          <ChatButton key='chat-categories' navigation={navigation} />,
-          <BasketButton key='basket-categories' navigation={navigation} />
+          //<ChatButton key='chat-categories' navigation={navigation} />,
+          <Departments key='basket-categories' navigation={navigation} />
         ]);
-      case 'Categories':
+      /*case 'Mi Tienda':
         return ([
-          <ChatButton key='chat-categories' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-categories' navigation={navigation} isWhite={white} />
+          //<ChatButton key='chat-categories' navigation={navigation} isWhite={white} />,
+          <Departments key='basket-categories' navigation={navigation} isWhite={white} />
         ]);
+      */
       case 'Category':
         return ([
-          <ChatButton key='chat-deals' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-deals' navigation={navigation} isWhite={white} />
+          //<ChatButton key='chat-deals' navigation={navigation} isWhite={white} />,
+          <Departments key='basket-deals' navigation={navigation} isWhite={white} />
         ]);
-      case 'Profile':
+      /*case 'Profile':
         return ([
-          <ChatButton key='chat-profile' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-deals' navigation={navigation} isWhite={white} />
+          //<ChatButton key='chat-profile' navigation={navigation} isWhite={white} />,
+          <Departments key='basket-deals' navigation={navigation} isWhite={white} />
         ]);
+        */
       case 'Product':
         return ([
           <SearchButton key='search-product' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-product' navigation={navigation} isWhite={white} />
+          <Departments key='basket-product' navigation={navigation} isWhite={white} />
         ]);
       case 'Search':
         return ([
-          <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
+          //<ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
+          <Departments key='basket-search' navigation={navigation} isWhite={white} />
         ]);
       case 'Settings':
         return ([
-          <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
+         // <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
+          <Departments key='basket-search' navigation={navigation} isWhite={white} />
         ]);
       default:
         break;
@@ -114,7 +121,7 @@ class Header extends React.Component {
         right
         color="black"
         style={styles.search}
-        placeholder="Que deseas buscar?"
+        placeholder="¿Qué deseas buscar?"
         onFocus={() => navigation.navigate('Pro')}
         iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="magnifying-glass" family="entypo" />}
       />
@@ -126,16 +133,16 @@ class Header extends React.Component {
 
     return (
       <Block row style={styles.tabs}>
-        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Pro')}>
+        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Stores')}>
           <Block row middle>
-            <Icon name="grid" family="feather" style={{ paddingRight: 8 }} />
-            <Text size={16} style={styles.tabTitle}>{tabTitleLeft || 'Categories'}</Text>
+            <Icon name="store" family="material" style={{ paddingRight: 8 }} />
+            <Text size={16} style={styles.tabTitle}>{tabTitleLeft || 'Tiendas'}</Text>
           </Block>
         </Button>
-        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Pro')}>
+        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Products')}>
           <Block row middle>
-            <Icon size={16} name="camera-18" family="GalioExtra" style={{ paddingRight: 8 }} />
-            <Text size={16} style={styles.tabTitle}>{tabTitleRight || 'Best Deals'}</Text>
+            <Icon size={16} name="shopping-bag" family="feather" style={{ paddingRight: 8 }} />
+            <Text size={16} style={styles.tabTitle}>{tabTitleRight || 'Productos'}</Text>
           </Block>
         </Button>
       </Block>

@@ -20,46 +20,57 @@ export default class Home extends React.Component {
         color="black"
         style={styles.search}
         iconContent={iconCamera}
-        placeholder="Que buscas?"
+        placeholder="¿Qué buscas?"
         onFocus={() => navigation.navigate('Pro')}
       />
     )
   }
   
   renderTabs = () => {
-    const { navigation } = this.props;
+    const { navigation } = this.props;  
 
     return (
       <Block row style={styles.tabs}>
-        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Pro')}>
+        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Stores')}>
           <Block row middle>
-            <Icon name="grid" family="feather" style={{ paddingRight: 8 }} />
-            <Text size={16} style={styles.tabTitle}>Categories</Text>
+          <Icon name="store" family="material" style={{ paddingRight: 8 }} />
+            <Text size={16} style={styles.tabTitle}>{tabTitleLeft || 'Tiendas'}</Text>
           </Block>
         </Button>
-        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Pro')}>
+        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Products')}>
           <Block row middle>
-            <Icon size={16} name="camera-18" family="GalioExtra" style={{ paddingRight: 8 }} />
-            <Text size={16} style={styles.tabTitle}>Best Deals</Text>
+          <Icon size={16} name="shopping-bag" family="feather" style={{ paddingRight: 8 }} />
+            <Text size={16} style={styles.tabTitle}>{tabTitleRight || 'Productos'}</Text>
           </Block>
         </Button>
       </Block>
     )
   }
 
+  
   renderProducts = () => {
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          <Product product={products[0]} horizontal />
-          <Block flex row>
+        <Product product={products[4]} full />
+        <Text bold size={16} style={{marginBottom: 8}}>Nuevas Tiendas</Text>
+        <Block flex row>
             <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[2]} />
+            <Product product={products[3]} />
           </Block>
+          <Block flex row>
+            <Product product={products[0]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[3]} />
+          </Block>
+          <Text bold size={16} style={{marginBottom: 8}}>Novedades</Text>
+          <Product product={products[0]} horizontal />
           <Product product={products[3]} horizontal />
-          <Product product={products[4]} full />
+          <Product product={products[1]} horizontal />
+          <Product product={products[3]} horizontal />
+          <Product product={products[4]} horizontal />
+          <Product product={products[2]} horizontal />
         </Block>
       </ScrollView>
     )
