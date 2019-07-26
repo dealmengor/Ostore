@@ -105,9 +105,7 @@ export default class Home extends React.Component {
             
             {this.state.dataSource.map(function(object, i) {
               return (
-                
-                  <Product product={object} horizontal key={object.id}/>
-          
+                <Product product={object} horizontal key={object.id}/>
               );
             })}
           </Block>
