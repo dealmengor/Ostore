@@ -25,10 +25,7 @@ export default class Profile extends React.Component {
                 <Block row space="between">
                   <Block row>
                     
-                    <Text color="white" size={16} muted style={styles.seller}>MiTienda.es</Text>
-                    <Text size={16} color={materialTheme.COLORS.WARNING}>
-                    <Icon name="shape-star" family="GalioExtra" size={14} />
-                    </Text>
+                  
                   </Block>
                   <Block>
                     <Text color={theme.COLORS.MUTED} size={16}>
@@ -59,19 +56,13 @@ export default class Profile extends React.Component {
               </Block>
             </Block>
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
-              <Text bold size={16}>Visto Recientemente</Text>
-              <Text size={12} color={materialTheme.COLORS.PRIMARY} onPress={() => this.props.navigation.navigate('Home')}>Mostrar Todos</Text>
+              <Text bold size={16}>Descripción</Text>
+             
             </Block>
             <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
+            <Text  size={16}>Lorem ipsum inkorum naskrot locur.</Text>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >
-                {Images.Viewed.map((img, imgIndex) => (
-                  <Image
-                    source={{ uri: img }}
-                    key={`viewed-${img}`}  
-                    resizeMode="cover"
-                    style={styles.thumb}
-                  />
-                ))}
+                
               </Block>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >
                 {Images.Viewed2.map((img, imgIndex) => (
@@ -90,6 +81,21 @@ export default class Profile extends React.Component {
     );
   }
 }
+/*
+  <Text color="white" size={16} muted style={styles.seller}>MiTienda.es</Text>
+                    <Text size={16} color={materialTheme.COLORS.WARNING}>
+                    <Icon name="shape-star" family="GalioExtra" size={14} />
+                    </Text>
+                     <Text size={12} color={materialTheme.COLORS.PRIMARY} onPress={() => this.props.navigation.navigate('Home')}>Mostrar Todos</Text>
+{Images.Viewed.map((img, imgIndex) => (
+                  <Image
+                    source={{ uri: img }}
+                    key={`viewed-${img}`}  
+                    resizeMode="cover"
+                    style={styles.thumb}
+                  />
+                ))}
+                     */
 const styles = StyleSheet.create({
   profile: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
