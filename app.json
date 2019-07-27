@@ -3,16 +3,29 @@
     "name": "Ostore",
     "description": "A simple Company Solution",
     "slug": "Ostore",
+    "owner": "A Simple Company",
     "privacy": "unlisted",
     "sdkVersion": "33.0.0",
+    "version": "0.5",
     "platforms": ["ios", "android"],
-    "version": "1.0.1",
+    "android": {
+      "package": "com.ASimpleCompany.Ostore"
+    },
     "orientation": "portrait",
+    "primaryColor": "#0082C8",
     "icon": "./assets/images/icon.png",
+    "androidStatusBar": {
+        "barStyle": "light-content"
+    },
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#0082C8"
+    },
+    "notification": {
+      "icon": "./assets/images/icon.png",
+      "color": "#0082C8",
+      "androidMode": "default"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

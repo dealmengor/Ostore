@@ -10,10 +10,9 @@ import Images from '../constants/Images';
 export default class Onboarding extends React.Component {
   render() {
     const { navigation } = this.props;
-
     return (
       <Block flex style={styles.container}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar hidden={true} />
         <Block flex center>
           <ImageBackground
             source={{  uri: Images.Onboarding }}

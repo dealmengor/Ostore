@@ -108,7 +108,7 @@ const DepartmentsStack = createStackNavigator({
 
   
 
-
+/*
 const ComponentsStack = createStackNavigator({
   Components: {
     screen: ComponentsScreen,
@@ -120,7 +120,7 @@ const ComponentsStack = createStackNavigator({
     cardStyle: { backgroundColor: '#EEEEEE', },
     transitionConfig,
   });
-
+*/
 
 const SettingsStack = createStackNavigator({
   Settings: {
@@ -258,7 +258,8 @@ const AppStack = createDrawerNavigator(
           <Drawer focused={focused} screen="Pro" title="Favoritos" />
         ),
       }),
-    },*/
+    },
+    */
     Settings: {
       screen: SettingsStack,
       navigationOptions: (navOpt) => ({
@@ -267,7 +268,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    
+    /*
     Components: {
       screen: ComponentsStack,
       navigationOptions: (navOpt) => ({
@@ -276,7 +277,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-   
+   */
     MenuDivider: {
       screen: HomeStack,
       navigationOptions: {
