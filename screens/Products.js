@@ -21,15 +21,14 @@ export default class Products extends React.Component {
     this.state = {
       loading: true,
       dataSource:[],
-      tiendaSource:[]
      };
    }
-
 
   componentDidMount(){
     fetch("http://18.225.36.133:8000/api/v1/productos")
     .then((response) => response.json())
     .then((responseJson)=> {
+      console.log(responseJson.results);
       this.setState({
        loading: false,
        dataSource: responseJson.results
@@ -59,11 +58,15 @@ export default class Products extends React.Component {
 
     const { navigation } = this.props;
     var prod = [];
-    for(let i = 0; i < this.state.dataSource.lenght; i=i+2){
-      console.log("hello");
+    for(let i = 0; i <= this.state.dataSource.length; i=i+2){
+      
+       
+        
+      
       prod.push(
-        <Block flex row>
-            <Product product={this.state.dataSource[i-1]} style={{ marginRight: theme.SIZES.BASE }} />
+       <Block flex row>
+            <Product product={products[4]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[4]} />
        </Block>
       )
     }

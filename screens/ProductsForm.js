@@ -19,6 +19,7 @@ export default class ProductsForm extends React.Component {
     return (
 
       <Block flex style={styles.container}>
+
         <ScrollView>
           <StatusBar barStyle="light-content" />
           <Block flex center>
@@ -29,9 +30,7 @@ export default class ProductsForm extends React.Component {
           </Block>
 
           <Block flex space="between" style={styles.padded}>
-            <Block>
-              <Text bold p color="white">Registre los datos de su Producto:</Text>
-            </Block>
+         
             <Block flex space="around" style={{ zIndex: 2 }}>
 
               <Block center >
@@ -43,10 +42,10 @@ export default class ProductsForm extends React.Component {
                 <Block>
                   <Button
                     shadowless
-                    style={styles.button}
+                    style={styles.buttonañadir}
                     color={materialTheme.COLORS.INFO}
                     onPress={this._pickImage}>
-                    Añadir
+                    Añadir foto
               </Button>
                 </Block>
                 <Input
@@ -130,14 +129,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE * 2,
     zIndex: 3,
     position: 'absolute',
-    bottom: height/2.5,
-
+    top: height/10,
+    marginBottom: 10,
+  },
+  buttonañadir: {
+    width: width - theme.SIZES.BASE * 4,
+    height: theme.SIZES.BASE * 3,
+    shadowRadius: 0,
+    shadowOpacity: 0,
   },
   button: {
     width: width - theme.SIZES.BASE * 4,
     height: theme.SIZES.BASE * 3,
     shadowRadius: 0,
     shadowOpacity: 0,
+    bottom: -40,
   },
   pro: {
     backgroundColor: materialTheme.COLORS.LABEL,
