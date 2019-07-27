@@ -3,6 +3,7 @@ import {
   ScrollView,
   StyleSheet,
   ImageBackground,
+  TouchableWithoutFeedback,
   Dimensions
 } from 'react-native';
 import { Block, Input, theme, Card} from 'galio-framework';
@@ -17,6 +18,7 @@ const thumbMeasure = (width - 48 - 32) / 3;
 export default class Stores extends React.Component {
 
   renderInputs = () => {
+    
     return (
 
       <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
@@ -33,6 +35,8 @@ export default class Stores extends React.Component {
   }
 
   renderCards = () => {
+    const { navigation } = this.props;
+
     return (
 
       <Block flex>
@@ -45,6 +49,7 @@ export default class Stores extends React.Component {
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
               </ImageBackground>
             </Block>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('Storedetails')}>
           <Card
             neutral
             fullBackgroundImage
@@ -54,6 +59,7 @@ export default class Stores extends React.Component {
             authorSubTitle="420 minutes ago"
             title="Ejemplo"
           />
+          </TouchableWithoutFeedback>
         </Block>
        
       </Block>
