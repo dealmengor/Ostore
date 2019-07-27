@@ -93,7 +93,7 @@ const MystoreStack = createStackNavigator({
     transitionConfig,
   });
 
-/*const DepartmentsStack = createStackNavigator({
+const DepartmentsStack = createStackNavigator({
   Departments: {
     screen: DepartmentsScreen,
     navigationOptions: ({ navigation }) => ({
@@ -106,14 +106,14 @@ const MystoreStack = createStackNavigator({
     transitionConfig,
   });
 
-  */
+  
 
 
 const ComponentsStack = createStackNavigator({
   Components: {
     screen: ComponentsScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Components" navigation={navigation} />,
+      header: <Header title="Componentes" navigation={navigation} />,
     })
   },
 }, {
@@ -232,7 +232,7 @@ const AppStack = createDrawerNavigator(
       }),
     },
 
-/*
+
     Departments: {
       screen: DepartmentsStack,
       navigationOptions: (navOpt) => ({
@@ -241,7 +241,7 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-
+/*
     Insights: {
 
       screen: ProScreen,
@@ -267,16 +267,16 @@ const AppStack = createDrawerNavigator(
         ),
       }),
     },
-    /*
+    
     Components: {
       screen: ComponentsStack,
       navigationOptions: (navOpt) => ({
         drawerLabel: ({ focused }) => (
-          <Drawer focused={focused} screen="Components" title="Components" />
+          <Drawer focused={focused} screen="Components" title="Componentes" />
         ),
       }),
     },
-    */
+   
     MenuDivider: {
       screen: HomeStack,
       navigationOptions: {
